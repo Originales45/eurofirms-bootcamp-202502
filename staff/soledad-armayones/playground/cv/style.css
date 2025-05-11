@@ -2,22 +2,13 @@
     font-family: 'Courier New', Courier, monospace
 }
 
-.photo {
-    width: 75px;
-    border-radius: 10px;
-    justify-content: right;
-}
-
-.gab-5px {
-    gap: 5px;
-}
 
 /* uttility classes */
 .flex {
     display: flex;
 }
 
-.justtify-center {
+.justify-center {
     justify-content: center;
 }
 
@@ -30,7 +21,7 @@
 }
 
 .flex col {
-    flex-direction column;
+    flex-direction columns;
 }
 
 .justify-between {
@@ -61,10 +52,10 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
-.radius-10 {
+.radius-10px {
     border-radius: 10px;
 }
 
 .w-50px {
-    width:
+    width: 50px
 }
