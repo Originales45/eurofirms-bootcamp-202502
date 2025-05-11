@@ -1,0 +1,38 @@
+* {
+    font-family: 'Courier New', Courier, monospace
+}
+
+.title {
+    background-color: plum;
+}
+
+.intro {
+    background-color: pink;
+
+}
+
+.experience {
+    background-color: skyblue;
+}
+
+.subtitle {
+    background-color: aquamarine;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    justify-content: space-between;
+    background-color: skyblue;
+}
+
+.photo {
+    width: 75px;
+    border-radius: 10px;
+    justify-content: right;
+}
+
+.gab-5px {
+    gap: 5px;
+}
