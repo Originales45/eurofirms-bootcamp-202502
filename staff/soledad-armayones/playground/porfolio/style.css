@@ -1,6 +1,14 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .grid {
     display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
 }
+
+
 
 .grid-1column-4rows {
     /* mobile */
