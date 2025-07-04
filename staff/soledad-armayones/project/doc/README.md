@@ -1,4 +1,4 @@
-# SWeb page sales machinery of hosteleria
+# Web page sales machinery of hosteleria
 
 ## This web page sales second hand machinery of hosterleria. 
 
@@ -35,7 +35,7 @@ Admin (User) [v0.1]
 
 ### UIUX
 
-[Figma](http://www.fgma.com)
+[Figma](https://www.figma.com/design/2XEbOJIh9e41BfEYDsahEl/Untitled?node-id=0-1&p=f&t=c9eJuFd2TJJg9BKo-0)
 
 ## Technical
 
@@ -59,43 +59,48 @@ Api
 ```
 
 Web Page
-|- tittle
+|-Logo
+|-Image coffe machine 
 |- Register User
-|- Pay
-|- Products
+|- Search
+|- Home
 |- Descriptions products
 |- Buy car
-|- Company data
+|- Chat & Repair Contatc
 
 ...
 ```
 
 ### Data Model
 User
-- Id User(UUID)
+- id (UUID)
 - name (string, required)
-- emil (string, required)
+- email (string, required)
 - username (string, required)
 - password (string, required)
 
-Order
-- Id User(UUID)
+Product
+- id (UUID)
 - name (string, required)
-- emil (string, required)
-- direccion adress 1 (string, required)
-- direccion adress 1 (string, required)
+- image (image, required)
+- description  (string, required)
+- price (number, required)
+- category (string, required, enum: coffee-machine | refrigerator | food-exhibitors)
+
+
+
+Order (v0.1)
+- id (UUID)
+- name (string, required)
+- email (string, required)
+- adress1 (string, required)
+- adress2 (string, required)
 - province (string, required)
 - city (string, required)
 - country (string, required)
-- zip code (string, required)
-- Order (datae, requited)
-- Pay order (string, required)
-
-Chat [v0.1]
-- id (UUID)
-- author (Coustomer.id, required)
-- text (string, required)
+- zipCode (string, required)
 - date (date, required)
+- payment (string, required)
 
 ### Tecnologies
 - React
