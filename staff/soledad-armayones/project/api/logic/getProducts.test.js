@@ -1,5 +1,5 @@
 import { connect, disconnect } from '../data/index.js'
-import { getPosts } from './getProducts.js'
+import { getProducts } from './getProducts.js'
 
 connect('mongodb://localhost:27017/test-shopapp')
     .then(() => {

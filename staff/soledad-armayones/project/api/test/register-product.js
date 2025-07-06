@@ -1,12 +1,12 @@
-fetch('http://localhost:8080/posts', {
+fetch('http://localhost:8080/users', {
     method: 'POST',
     headers: {
-        Authorization: 'Basic user-20',
         'Content-Type': 'application/json'
     },
-    body: '{"image":"https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2V6cWJlZnYzcXY4ODU0NnV1bjN1ZGxlcHVlajRqenh6b2gxN3pqbSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/GSgWBrpHeRdWE/giphy.gif","text":"pin8 dancing"}'
+    body: '{"name":"Jordi Lopez", "username":"Jlopez1975","password":"123123123","image":"https://futurbar.com/wp-content/uploads/2014/12/6726-Cafetera-Automatica-de-3-Grupos-F3-Futurmat.jpg","text":" F3 ELE Futurmatcafetera 3 grupos","price":"3282,90E"}'
 })
-    .catch(error => { throw Error('connection error') })
+
+    .catch(error => { throw new Error('connection error') })
     .then(response => {
         const { status } = response
 
@@ -18,7 +18,9 @@ fetch('http://localhost:8080/posts', {
                 const { error, message } = body
 
                 throw new Error(message)
+
             })
+
     })
-    .then(() => console.log('post created'))
+    .then(() => console.log('product registered'))
     .catch(error => console.error(error))

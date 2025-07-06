@@ -1,0 +1,1 @@
+curl -X POST -H 'Content-Type: application/json' -d '{"name":"Jordi Lopez","username":"Jlopez1975","password":"123123123","image":"https://futurbar.com/wp-content/uploads/2014/12/6726-Cafetera-Automatica-de-3-Grupos-F3-Futurmat.jpg","text":" F3 ELE Futurmatcafetera 3 grupos","price":"3282,90E"}' http://localhost:8080/users -v

@@ -4,7 +4,7 @@ import { createProduct } from './createProduct.js'
 connect('mongodb://localhost:27017/test-shopapp')
     .then(() => {
         try {
-            return createProduct('6831e7a7fd98fd111ae2800d', 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2V6cWJlZnYzcXY4ODU0NnV1bjN1ZGxlcHVlajRqenh6b2gxN3pqbSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/GSgWBrpHeRdWE/giphy.gif', 'pin8 dancing')
+            return createProduct('6831e7a7fd98fd111ae2800d', 'https://futurbar.com/wp-content/uploads/2014/12/6726-Cafetera-Automatica-de-3-Grupos-F3-Futurmat.jpg', 'pin8 dancing')
                 .then(() => console.log('product created'))
                 .catch(error => console.error(error))
         } catch (error) {

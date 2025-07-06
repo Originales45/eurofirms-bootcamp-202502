@@ -18,5 +18,5 @@ fetch('http://localhost:8080/posts/post-5', {
                 throw new Error(message)
             })
     })
-    .then(() => console.log('post removed'))
+    .then(() => console.log('product removed'))
     .catch(error => console.error(error))

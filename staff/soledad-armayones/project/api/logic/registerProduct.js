@@ -3,20 +3,21 @@ import bcrypt from 'bcryptjs'
 import { User } from '../data/index.js'
 import { validate, SystemError, DuplicityError } from 'com'
 
-export const registerUser = (name, email, username, password, address, city, phone) => {
+export const registerProduct = (name, username, password, image, category, description, price) => {
 
     validate.name(name)
-    validate.email(email)
     validate.username(username)
     validate.password(password)
-    validate.address(address)
-    validate.city(city)
-    validate.phone(phone)
+    validate.image(image)
+    validate.category(category)
+    validate.description(description)
+    validate.price(text)
+
 
     return bcrypt.hash(password, 10)
         .catch(error => { throw new SystemError(error.message) })
         .then(hash => {
-            return User.create({ name, email, username, password: hash, address, phone })
+            return Product.create({ name, username, password, text: hash, image, price })
                 .catch(error => {
                     if (error.code === 11000) throw new DuplicityError('user already exists')
 

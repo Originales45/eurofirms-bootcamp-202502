@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken'
 
 const { JWT_SECRET } = process.env
 
-export const productsRouter = Router()
+export const productRouter = Router()
 
 productsRouter.post('/', jsonBodyParser, (request, response, next) => {
     try {

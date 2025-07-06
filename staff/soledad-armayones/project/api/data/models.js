@@ -36,6 +36,11 @@ const user = new Schema({
     phone: {
         type: Number,
         required: true
+    },
+
+    city: {
+        type: Text,
+        required: true
     }
 
 })
@@ -69,7 +74,14 @@ const product = new Schema({
     name: {
         type: String,
         required: true
-    }
+    },
+
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    
 
 })
 

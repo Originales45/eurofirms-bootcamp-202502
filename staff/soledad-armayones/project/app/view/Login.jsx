@@ -1,4 +1,5 @@
 import { CredentialsError, NotFoundError, SystemError, ValidationError } from 'com'
+import { BottomNav } from './components/BottomNav'
 
 import { logic } from '../logic'
 

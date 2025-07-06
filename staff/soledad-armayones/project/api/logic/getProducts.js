@@ -9,7 +9,7 @@ export const getProducts = userId => {
         .then(user => {
             if (!user) throw new NotFoundError('user not found')
 
-            return Product.find({}).select('-__v').populate('name', 'email', 'username', 'password').sort('-date').lean()
+            return Product.find({}).select('-__v').populate('name', 'username', 'password', 'image', 'text', 'price').sort('-date').lean()
                 .catch(error => { throw new SystemError('mongo error') })
                 .then(products => {
                     products.forEach(product => {
