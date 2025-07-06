@@ -10,7 +10,6 @@ export const registerUser = (name, email, username, password, address, phone) =>
     validate.username(username)
     validate.password(password)
     validate.address(address)
-    validate.phone(phone)
 
     return bcrypt.hash(password, 10)
         .catch(error => { throw new SystemError(error.message) })

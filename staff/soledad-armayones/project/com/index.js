@@ -1,14 +1,5 @@
-export const data = {
+export * from './errors.js'
+export * from './validate.js'
 
-    setToken(token) {
-        sessionStorage.token = token
-    },
-
-    getToken() {
-        return sessionStorage.token
-    },
-
-    removeToken() {
-        delete sessionStorage.token
-    }
-}
+import errors from './errors.js'
+export { errors }

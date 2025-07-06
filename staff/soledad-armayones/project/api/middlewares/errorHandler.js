@@ -1,4 +1,4 @@
-import { AuthorshipError, CredentialsError, DuplicityError, NotFoundError, SystemError, ValidationError, AuthorizationError } from "com";
+import { AuthorshipError, CredentialsError, DuplicityError, NotFoundError, SystemError, ValidationError, AuthorizationError } from 'com'
 import jwt from 'jsonwebtoken'
 
 const { JsonWebTokenError } = jwt

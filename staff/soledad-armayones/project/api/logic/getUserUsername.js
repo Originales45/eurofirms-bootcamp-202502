@@ -1,18 +1,14 @@
-import { connect, disconnect } from '../data/index.js'
-import { getUserUsername } from './getUserUsername.js'
+import { User } from '../data/index.js'
+import { validate, SystemError, NotFoundError } from 'com'
 
-connect('mongodb://localhost:27017/test-shopapp')
-    .then(() => {
-        try {
-            return getUserUsername('685b091f14497845bae3b99b')
-                .then(({ username, profileCompleted }) => {
-                    console.log('username gotten:', username)
-                    console.log('is profile completed?', profileCompleted)
-                })
-                .catch(error => console.error(error))
-        } catch (error) {
-            console.error(error)
-        }
-    })
-    .catch(error => console.error(error))
-    .finally(() => disconnect())
+export const getUserUsername = userId => {
+    validate.userId(userId)
+
+    return User.findById(userId)
+        .catch(error => { throw new SystemError('mongo error') })
+        .then(user => {
+            if (!user) throw new NotFoundError('user not found')
+
+            return user.username
+        })
+}

@@ -1,1 +1,16 @@
-curl -X POST -H 'Content-Type: application/json' -d '{"name":"Mar 30","username":"Mar30","password":"123123123","address":"Colom 50","email":"mar30@gmail.com","phone":"650505050"}' http://localhost:8080/users -v
+import { connect, disconnect } from '../data/index.js'
+import { registerUser } from './registerUser.js'
+
+connect('mongodb://localhost:27017/test-shopapp  ')
+    .then(() => {
+        try {
+            //return registerUser('Mar Garcia', 'mar20@gmail.com', 'mar1', '123123123')
+            return registerUser('Sole', 'sole40@gmail.com', 'sole40', '123123123')
+                .then(() => console.log('user registered'))
+                .catch(error => console.error(error))
+        } catch (error) {
+            console.error(error)
+        }
+    })
+    .catch(error => console.error(error))
+    .finally(() => disconnect())

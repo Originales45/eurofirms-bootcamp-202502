@@ -59,13 +59,13 @@ Api
 ```
 
 Web Page
-|-Logo
-|-Image coffe machine 
+|- Logo
+|- Image coffe machine 
 |- Register User
 |- Search
 |- Home
 |- Descriptions products
-|- Buy car
+|- Buy machinary
 |- Chat & Repair Contatc
 
 ...
@@ -95,6 +95,7 @@ Order (v0.1)
 - email (string, required)
 - adress1 (string, required)
 - adress2 (string, required)
+- phone (numbers, required)
 - province (string, required)
 - city (string, required)
 - country (string, required)

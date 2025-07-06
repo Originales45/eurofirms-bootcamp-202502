@@ -1,4 +1,5 @@
 export const data = {
+
     setToken(token) {
         sessionStorage.token = token
     },

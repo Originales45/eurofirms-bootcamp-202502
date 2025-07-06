@@ -1,11 +1,11 @@
 import { connect, disconnect } from '../data/index.js'
-import { registerUser } from './registerUser.js'
+import { getUserUsername } from './getUserUsername.js'
 
 connect('mongodb://localhost:27017/test-shopapp')
     .then(() => {
         try {
-            return registerUser('Mari Garcia', 'mari30@gmail.com', 'Mari30', '123123123', 'Colom 40', '650505050')
-                .then(() => console.log('user registered'))
+            return getUserUsername('6831e7a7fd98fd111ae2800d')
+                .then(username => console.log('user username', username))
                 .catch(error => console.error(error))
         } catch (error) {
             console.error(error)

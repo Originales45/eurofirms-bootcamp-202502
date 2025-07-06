@@ -1,26 +1,32 @@
-import { Exercise } from '../data/index.js'
-import { validate, SystemError, DuplicityError } from 'com'
+import { User, Product } from '../data/index.js'
+import { validate, SystemError, NotFoundError } from 'com'
 
-export const createProduct = (name, description, image, price, category) => {
+/**
+ * Creates a post in database.
+ * 
+ * @param {string} userId The user id.
+ * @param {string} name The name.
+ * @param {string} image The post image url.
+ * @param {string} description The description product.
+ * @param {string} price The product price in number and €.
+ * @param {string} category The product category: coffee machine, refigerator, food-exhibithor.
+ * 
+ */
+export const createProduct = (userId, name, image, description, price, category) => {
+    validate.userId(userId)
     validate.name(name)
-    validate.description(description)
     validate.image(image)
+    validate.description(description)
     validate.price(price)
+    validate.category(text)
 
-    return ProductCategory.findOne({ name })
+    return User.findById(userId)
         .catch(error => { throw new SystemError('mongo error') })
-        .then(exercise => {
-            if (exercise) throw new DuplicityError('exercise already exits')
+        .then(user => {
+            if (!user) throw new NotFoundError('user not found')
 
-            return ProductCategory.create({
-                name,
-                description,
-                image,
-                price
-            })
+            return Product.create({ author: userId, image, text })
+                .catch(error => { throw new SystemError('mongo error') })
+                .then(() => { })
         })
-
-
-        .catch(error => { throw new SystemError('mongo error') })
-        .then(() => { })
 }

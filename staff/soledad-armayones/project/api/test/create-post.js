@@ -1,13 +1,13 @@
-fetch('http://localhost:8080/users', {
+fetch('http://localhost:8080/posts', {
     method: 'POST',
     headers: {
+        Authorization: 'Basic user-20',
         'Content-Type': 'application/json'
     },
-    body: '{"name":"taza Pan","email":"taza@gmail.com","username":"taza1","password":"123123123"}'
+    body: '{"image":"https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2V6cWJlZnYzcXY4ODU0NnV1bjN1ZGxlcHVlajRqenh6b2gxN3pqbSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/GSgWBrpHeRdWE/giphy.gif","text":"pin8 dancing"}'
 })
-    .catch(error => { throw new Error('connection error') })
+    .catch(error => { throw Error('connection error') })
     .then(response => {
-        //const status = response.status
         const { status } = response
 
         if (status === 201) return
@@ -20,5 +20,5 @@ fetch('http://localhost:8080/users', {
                 throw new Error(message)
             })
     })
-    .then(() => console.log('user registered'))
+    .then(() => console.log('post created'))
     .catch(error => console.error(error))

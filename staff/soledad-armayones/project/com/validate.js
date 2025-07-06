@@ -21,48 +21,33 @@ export const validate = {
 
     password(password) {
         if (typeof password !== 'string') throw new ValidationError('invalid password type')
-        if (password.length < 8) throw new ValidationError('invalid password ming length')
+        if (password.length < 8) throw new ValidationError('invalid password min length')
         if (password.length > 20) throw new ValidationError('invalid password max length')
-    },
-
-    gender(gender) {
-        if (typeof gender !== 'string') throw new ValidationError('invalid gender type')
-        if (!['male', 'female', 'other'].includes(gender)) throw new ValidationError('invalid gender value')
-    },
-
-    weight(weight) {
-        if (typeof weight !== 'number' || isNaN(weight)) throw new ValidationError('invalid weight type')
-        if (weight < 30 || weight > 200) throw new ValidationError('unrealistic weight')
-    },
-
-    height(height) {
-        if (typeof height !== 'number' || isNaN(height)) throw new ValidationError('invalid height type')
-        if (height < 50 || height > 250) throw new ValidationError('unrealistic height')
-    },
-
-    description(description) {
-        if (typeof description !== 'string') throw new ValidationError('invalid description type')
-        if (description.length < 1) throw new ValidationError('invalid description min length')
-        if (description.length > 250) throw new ValidationError('invalid description max length')
-    },
-
-    image(image) {
-        if (typeof image !== 'string') throw new ValidationError('invalid image type')
-        if (!image) throw new ValidationError('you must provide an image')
-    },
-
-    difficulty(difficulty) {
-        if (typeof difficulty !== 'string') throw new ValidationError('invalid difficulty type')
-        if (!['easy', 'medium', 'hard'].includes(difficulty)) throw new ValidationError('invalid difficulty value')
-    },
-
-    muscleGroup(muscleGroup) {
-        if (typeof muscleGroup !== 'string') throw new ValidationError('invalid muscle group type')
-        if (!['shoulders', 'legs', 'back', 'arms', 'full-body'].includes(muscleGroup)) throw new ValidationError('invalid muscle group value')
     },
 
     userId(userId) {
         if (typeof userId !== 'string') throw new ValidationError('invalid userId type')
         if (userId.length !== 24) throw new ValidationError('invalid userId length')
+    },
+
+    image(image) {
+        if (typeof image !== 'string') throw new ValidationError('invalid image type')
+        if (!image.startsWith('http')) throw new ValidationError('invalid image format')
+    },
+
+    text(text) {
+        if (typeof text !== 'string') throw new ValidationError('invalid text type')
+        if (text.length < 1) throw new ValidationError('invalid min text length')
+    },
+
+    postId(postId) {
+        if (typeof postId !== 'string') throw new ValidationError('invalid postId type')
+        if (postId.length !== 24) throw new ValidationError('invalid postId length')
+    },
+
+    address(address) {
+        if (typeof address !== 'string') throw new ValidationError('invalid address type')
+        if (address.length > 24) throw new
+            ValidationError('invalid address length')
     }
 }

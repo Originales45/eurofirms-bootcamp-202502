@@ -1,4 +1,4 @@
-fetch('http://localhost:8080/users/self/username', {
+fetch('http://localhost:8080/posts', {
     method: 'GET',
     headers: {
         Authorization: 'Basic user-10'
@@ -11,7 +11,7 @@ fetch('http://localhost:8080/users/self/username', {
         if (status === 200)
             return response.json()
                 .catch(error => { throw new Error('json error') })
-                .then(username => username)
+                .then(posts => posts)
 
         return response.json()
             .catch(error => { throw new Error('json error') })
@@ -21,5 +21,5 @@ fetch('http://localhost:8080/users/self/username', {
                 throw new Error(message)
             })
     })
-    .then(username => console.log('user username gotten', username))
+    .then(posts => console.log(posts))
     .catch(error => console.error(error))
