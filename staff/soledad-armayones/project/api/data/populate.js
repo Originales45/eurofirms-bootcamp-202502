@@ -10,7 +10,9 @@ connect('mongodb://localhost:27017/test-shopapp')
             name: 'Mar Garcia',
             email: 'Mar20@gmail.com',
             username: 'mar20',
-            password: '123123123'
+            password: '123123123',
+            address: 'calle Aragón 32',
+            phone: '678545454'
         })
     })
     .catch(error => console.error(error))

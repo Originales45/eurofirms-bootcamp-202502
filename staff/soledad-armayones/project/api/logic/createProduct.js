@@ -1,21 +1,31 @@
 import { User, Product } from '../data/index.js'
-import { validate, SystemError, NotFoundError } from 'com'
 
-export const createProduct = (userId, name, image, description, price, category) => {
+import { validate, SystemError, DuplicityError, NotFoundError } from 'com'
+
+
+export const createProduct = (userId, name, image, category, description, price) => {
+
     validate.userId(userId)
     validate.name(name)
     validate.image(image)
+    validate.category(category)
     validate.description(description)
     validate.price(price)
-    validate.category(text)
 
     return User.findById(userId)
-        .catch(error => { throw new SystemError('mongo error') })
+        .catch(error => {
+            throw new
+                SystemError(error.message)
+        })
         .then(user => {
-            if (!user) throw new NotFoundError('user not found')
+            if (!user) throw new
+                NotFoundError('user not found')
 
-            return Product.create({ author: userId, image, text })
-                .catch(error => { throw new SystemError('mongo error') })
+            return Product.create({ name, image, category, description, price })
+                .catch(error => {
+                    throw new SystemError(error.message)
+                })
                 .then(() => { })
         })
+
 }

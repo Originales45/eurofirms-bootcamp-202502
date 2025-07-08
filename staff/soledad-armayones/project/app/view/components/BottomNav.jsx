@@ -2,6 +2,7 @@ import { AiOutlineUser,  AiOutlineSearch, AiOutlineHome, AiOutlineShoppingCart, 
 import { useNavigate } from 'react-router'
 
 
+
 export function BottomNav() {
     const navigate = useNavigate()
 

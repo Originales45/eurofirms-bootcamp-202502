@@ -11,9 +11,9 @@ export const removeProduct = (userId, productId) => {
             if (!user) throw new NotFoundError('user not found')
 
             return Product.findById(postId)
-                .catch(error => { throw new SystemError('mongo error') })
+                .catch(error => { throw new SystemError(error.message) })
                 .then(prouct => {
-                    if (!prouct) throw new NotFoundError('product not found')
+                    if (!product) throw new NotFoundError('product not found')
 
                     if (user.role !== 'administrator' && product.author.toString() !== userId) throw new AuthorshipError('user not author of product')
 

@@ -30,58 +30,49 @@ const user = new Schema({
 
     address: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
 
     phone: {
-        type: Number,
-        required: true
+        type: String,
+        required: true,
+        unique: true
     },
 
-    city: {
-        type: Text,
-        required: true
-    }
 
 })
 
 const product = new Schema({
-
-    image: {
-        type: String,
-        required: true,
-        unique: false
-    },
-
-
-    description: {
-        type: String,
-        required: true
-    },
-
-    category: {
-        type: String,
-        required: true,
-        enum: ['coffee-machine, refigetator, food-exhibitors']
-    },
-
-    price: {
-        type: String,
-        required: true,
-        enum: ['text, number, €'],
-    },
 
     name: {
         type: String,
         required: true
     },
 
-    username: {
+    image: {
         type: String,
         required: true,
-        unique: true
     },
-    
+
+    description: {
+        type: String,
+        required: true
+    },
+
+    price: {
+        type: Number,
+        required: true,
+
+    },
+    category: {
+        type: String,
+        required: true,
+        enum: ['coffee-machine', 'refrigerator', 'food-exhibitor']
+    },
+
+
+
 
 })
 

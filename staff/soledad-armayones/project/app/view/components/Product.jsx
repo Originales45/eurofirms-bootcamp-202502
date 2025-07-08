@@ -2,16 +2,16 @@ import { logic } from '../../logic'
 
 import { useContext } from '../../context'
 
-export const Product = ({ product, onPostDeleted }) => {
+export const Product = ({ product, onProductDeleted }) => {
     const { alert, confirm } = useContext()
 
     const handleDeleteClick = () => {
-        confirm('Delete post?')
+        confirm('Delete product?')
             .then(result => {
                 if (result)
                     try {
-                        logic.removeP(post.id)
-                            .thenroduct(() => onPostDeleted())
+                        logic.removeProduct(product.id)
+                            .then(() => onProductDeleted())
                             .catch(error => {
                                 console.error(error)
 
@@ -25,20 +25,10 @@ export const Product = ({ product, onPostDeleted }) => {
             })
     }
 
-    let isAdmin
-
-    try {
-        isAdmin = logic.isUserAdministrator()
-    } catch (error) {
-        console.error(error)
-
-        alert(error.message)
-    }
-
     console.log('Product -> render')
 
     return <article>
-        <h3 className="font-bold">{product.author.username}</h3>
+        <h3 className="font-bold">{products.author.username}</h3>
 
         <img src={product.image} alt="" />
 
@@ -46,12 +36,6 @@ export const Product = ({ product, onPostDeleted }) => {
 
         <time>{product.date}</time>
 
-        <description>{product.text}</description>
-
-        <price>{product.number}</price>
-
-        <category>{product.text}</category>
-
-        {(product.own || isAdmin) && <button className="border-4 border-black px-2 mx-1 cursor-pointer" onClick={handleDeleteClick}>🗑️</button>}
+        {prouct.own && <button className="border-4 border-black px-2 mx-1 cursor-pointer" onClick={handleDeleteClick}>🗑️</button>}
     </article>
 }

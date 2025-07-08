@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken'
 
 const { JWT_SECRET } = process.env
 
-export const productRouter = Router()
+export const productsRouter = Router()
 
 productsRouter.post('/', jsonBodyParser, (request, response, next) => {
     try {
@@ -16,7 +16,7 @@ productsRouter.post('/', jsonBodyParser, (request, response, next) => {
 
         const { image, category, text } = request.body
 
-        logic.createPost(userId, name, image, description, price, category)
+        logic.createProduct(userId, image, description, price, category)
             .then(() => response.status(201).send())
             .catch(error => next(error))
     } catch (error) {
@@ -24,7 +24,8 @@ productsRouter.post('/', jsonBodyParser, (request, response, next) => {
     }
 })
 
-productsRouter.get('/', (request, response, next) => {
+productsRouter.get('/', (request, response, next) => {    
+
     try {
         const authorization = request.headers.authorization
         const token = authorization.slice(7)
@@ -48,7 +49,7 @@ productsRouter.delete('/:productId', (request, response, next) => {
 
         const { productId } = request.params
 
-        logic.removeProuct(userId, productId)
+        logic.removeProduct(userId, productId)
             .then(() => response.status(204).send())
             .catch(error => next(error))
     } catch (error) {

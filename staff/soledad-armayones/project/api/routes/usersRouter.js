@@ -5,13 +5,13 @@ import jwt from 'jsonwebtoken'
 
 const { JWT_SECRET } = process.env
 
-export const productRouter = Router()
+export const usersRouter = Router()
 
-registerProductRouter.post('/', jsonBodyParser, (request, response, next) => {
+usersRouter.post('/', jsonBodyParser, (request, response, next) => {
     try {
-        const { name, username, password, image, descripcion, category, price} = request.body
+        const { name, email, username, password, address, phone } = request.body
 
-        logic.registerProduct(name, username, password, image, description, category, price)
+        logic.registerProduct(name, email, username, password, address, phone)
             .then(() => response.status(201).send())
             .catch(error => next(error))
     } catch (error) {
@@ -19,7 +19,7 @@ registerProductRouter.post('/', jsonBodyParser, (request, response, next) => {
     }
 })
 
-registerProductRouter.post('/auth', jsonBodyParser, (request, response, next) => {
+usersRouter.post('/auth', jsonBodyParser, (request, response, next) => {
     try {
         const { username, password } = request.body
 

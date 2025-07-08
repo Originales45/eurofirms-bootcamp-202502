@@ -1,6 +1,7 @@
 import { CredentialsError, NotFoundError, SystemError, ValidationError } from 'com'
 import { BottomNav } from './components/BottomNav'
 
+
 import { logic } from '../logic'
 
 import { useContext } from '../context'
@@ -45,29 +46,45 @@ export const Login = ({ onRegisterClicked, onUserLoggedIn }) => {
 
     console.log('Login -> render')
 
-    return <div className="p-5">
-        <i className="text-2xl">Logo</i>
+    return <div className="p-15">
+        <div className="w-full flex justify-center pt-3 ">
+            <img src="/logo.jpg" className="w-[50vw]" />
+        </div>
 
         <div className="mt-2">
-            <h1 className="text-xl">Login</h1>
+            <h1 className="gap-5 flex p-2 justify-center"> Usar tus datos de tu cuenta para entrar </h1>
+        </div>
 
-            <form className="flex flex-col gap-4" onSubmit={handleLoginSubmit}>
-                <div className="flex flex-col gap">
-                    <label htmlFor="username">Username</label>
-                    <input className="border-2 px-1" type="text" id="username" name="username" placeholder="your username" />
-                </div>
+        {/* <div className="flex justify-center gap-[20vw]">
+            <button className="gap-4 flex flex-nowrap bg-black text-[yellow] text-l p-3">
+                Google
+            </button>
+            <button className="gap-4 flex flex-nowrap bg-black text-[yellow] text-l p-3">
+                Apple
+            </button>
+        </div> */}
 
-                <div className="flex flex-col gap">
-                    <label htmlFor="password">password</label>
-                    <input className="border-2 px-1" type="password" id="password" name="password" placeholder="your password" />
-                </div>
+        <form className="flex flex-col gap-4" onSubmit={handleLoginSubmit}>
+            <div className="flex flex-col gap">
+                <label htmlFor="username">Usuario</label>
+                <input className="border-2 px-1" type="text" id="username" name="username" placeholder=" " />
+            </div>
+
+            <div className="flex flex-col gap">
+                <label htmlFor="password">Contraseña</label>
+                <input className="border-2 px-1" type="password" id="password" name="password" placeholder=" " />
+            </div>
+
+            <div className="flex justify-between">
+                <a className="underline" href="#" onClick={handleRegisterClick}>Registro</a>
 
                 <div className="flex justify-between">
-                    <a className="underline" href="#" onClick={handleRegisterClick}>Register</a>
-
-                    <button className="bg-black text-white px-2" type="submit">Login</button>
+                    <button className="underline" type="submit" >Acceso</button>
                 </div>
-            </form>
-        </div>
+
+                <BottomNav />
+            </div>
+        </form>
+
     </div>
 }

@@ -2,20 +2,20 @@ import { useEffect, useState } from 'react'
 
 import { logic } from '../../logic'
 
-import { Product } from './Product'
+import { Product } from 'Product'
 import { useContext } from '../../context'
 
 
 export const Products = () => {
     const { alert } = useContext()
 
-    const [products, setProducts] = useState([])
+    const [Poducts, setProducts] = useState([])
 
     useEffect(() => {
         try {
             logic.getProducts()
-                .then(posts => {
-                    setProducts(products)
+                .then(products => {
+                    setproducts(products)
                 })
                 .catch(error => {
                     console.error(error)
@@ -29,11 +29,11 @@ export const Products = () => {
         }
     }, [])
 
-    const handleProductDeleted = () => {
+    const handleproductDeleted = () => {
         try {
-            logic.getProducts()
+            logic.getproducts()
                 .then(products => {
-                    setProducts(products)
+                    setproducts(prooducts)
                 })
                 .catch(error => {
                     console.error(error)
@@ -47,9 +47,9 @@ export const Products = () => {
         }
     }
 
-    console.log('Products -> render')
+    console.log('products -> render')
 
     return <>
-        {productss.map(product => <Product key={product.id} product={product} onProductDeleted={handleProductDeleted} />)}
+        {products.map(product => <product key={product.id} product={product} onproductDeleted={handleclotheDeleted} />)}
     </>
 }

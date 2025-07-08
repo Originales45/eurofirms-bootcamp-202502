@@ -1,18 +1,15 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router'
-
 import { Landing } from './view/Landing'
 import { Register } from './view/Register'
 import { Login } from './view/Login'
 import { Home } from './view/Home'
 import { Alert } from './view/components/Alert'
 import { Confirm } from './view/components/Confirm'
-import {  Context } from './context'
+import { Context } from './context'
 
 import { logic } from './logic'
 import { Menu } from './view/Menu'
-
-
 
 export const App = () => {
     const navigate = useNavigate()
@@ -121,6 +118,14 @@ export const App = () => {
                 />
 
             } />
+
+            <Route path='/home' element={
+                <Home
+                    onHomeClicked={handleRegisterClicked}
+                    onMenuLoggedIn={handleUserLoggedIn}
+                />
+            } />
+
 
         </Routes>
     </Context.Provider>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { BottomNav } from './components/BottomNav'
 
 import { logic } from '../logic'
 
@@ -38,24 +39,24 @@ export const Home = ({ onUserLoggedOut }) => {
         }
     }
 
-    const handleCreateProductClick = () => setView('create-product')
+    const handleCreateProductClick = () => setView('/create-product')
 
-    const handleCreateProductCancelClicked = () => setView('product')
+    const handleCreateProductCancelClicked = () => setView('/product')
 
-    const handleProductCreated = () => setView('product')
+    const handleProductsCreated = () => setView('/products')
 
     console.log('Home -> render')
 
     return <div className="p-5">
-        <i className="text-2xl">Venta & Sat Cafeteras </i>
+        <i className="text-2xl">Coffee Shop</i>
 
         <div className="mt-2">
-            <h1 className="text-xl">Hello, {username}!</h1>
+            <h1 className="text-xl">Wellcome, {username}!</h1>
 
             <button
                 className="bg-black text-white px-2 mx-1"
                 type="button"
-                onClick={handleCreateClotheClick}
+                onClick={handleCreateProductClick}
             >+</button>
 
             <button
@@ -68,7 +69,10 @@ export const Home = ({ onUserLoggedOut }) => {
         {view === 'product' && <Product alert={alert} confirm={confirm} />}
         {view === 'create-product' && <CreateProduct
             onCancelClicked={handleCreateProductCancelClicked}
-            onClotheCreated={handleProductCreated}
+            onProductCreated={handleProductsCreated}
         />}
+
+        <BottomNav />
+
     </div>
 }

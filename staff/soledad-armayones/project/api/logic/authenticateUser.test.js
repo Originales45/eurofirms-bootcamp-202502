@@ -4,7 +4,7 @@ import { authenticateUser } from './authenticateUser.js'
 connect('mongodb://localhost:27017/test-shopapp')
     .then(() => {
         try {
-            return authenticateUser('Mari30', '123123123')
+            return authenticateUser('Juan54', '123123123')
                 .then(user => console.log('user authenticated', user))
                 .catch(error => console.error(error))
         } catch (error) {

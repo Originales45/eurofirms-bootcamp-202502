@@ -4,7 +4,7 @@ import { getUserUsername } from './getUserUsername.js'
 connect('mongodb://localhost:27017/test-shopapp')
     .then(() => {
         try {
-            return getUserUsername('686ad429005dc065e6f6cd94')
+            return getUserUsername('686d32bb3c2f168e0265a411')
                 .then(username => console.log('user username', username))
                 .catch(error => console.error(error))
         } catch (error) {
