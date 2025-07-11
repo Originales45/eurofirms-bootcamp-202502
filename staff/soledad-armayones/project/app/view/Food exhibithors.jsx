@@ -1,1 +1,0 @@
-import { BottomNav } from './components/BottomNav'

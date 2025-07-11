@@ -1,5 +1,6 @@
 import { ValidationError } from './errors.js'
 
+const categories = ['coffee-machine', 'refrigerator', 'food-exhibitor']
 
 export const validate = {
     name(name) {
@@ -16,13 +17,13 @@ export const validate = {
     username(username) {
         if (typeof username !== 'string') throw new ValidationError('invalid username type')
         if (username.length < 3) throw new ValidationError('invalid username min length')
-        if (username.length > 60) throw new ValidationError('invalid username max length')
+        if (username.length > 20) throw new ValidationError('invalid username max length')
     },
 
     password(password) {
         if (typeof password !== 'string') throw new ValidationError('invalid password type')
         if (password.length < 5) throw new ValidationError('invalid password min length')
-        if (password.length > 20) throw new ValidationError('invalid password max length')
+        if (password.length > 70) throw new ValidationError('invalid password max length')
     },
 
     address(address) {
@@ -38,9 +39,9 @@ export const validate = {
         if (phone.length > 15) throw new ValidationError('invalid phone max length')
     },
 
-    userId(userId) {
-        if (typeof userId !== 'string') throw new ValidationError('invalid userId type')
-        if (userId.length !== 24) throw new ValidationError('invalid userId length')
+    id(id) {
+        if (typeof id !== 'string') throw new ValidationError('invalid Id type')
+        if (id.length !== 24) throw new ValidationError('invalid Id length')
     },
 
     image(image) {
@@ -51,8 +52,11 @@ export const validate = {
         if (typeof description !== 'string') throw new ValidationError('invalid description type')
     },
 
+    
     category(category) {
         if (typeof category !== 'string') throw new ValidationError('invalid category type')
+        if (category.length < 2) throw new ValidationError('invalid category min length')
+        if (category.length > 50) throw new ValidationError('invalid category max length')
     },
 
     title(title) {
@@ -61,7 +65,7 @@ export const validate = {
 
     price(price) {
         if (typeof price !== 'number') throw new ValidationError('invalid price type')
-    }
+    },
 
 
 }

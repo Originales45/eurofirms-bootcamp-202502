@@ -4,7 +4,7 @@ fetch('http://localhost:8080/products', {
         Authorization: 'Basic user-20',
         'Content-Type': 'application/json'
     },
-    body: '{"image":"https://futurbar.com/wp-content/uploads/2014/12/6726-Cafetera-Automatica-de-3-Grupos-F3-Futurmat.jpg","description":"F3 ELE Futurmat", "categori": "Coffe Machine", "price":3782,90E"}'
+    body: '{"image":"","description":"F3 ELE Futurmat", "categori": "food-echibitor Machine", "price":3782,90E"}'
 })
     .catch(error => { throw Error('connection error') })
     .then(response => {

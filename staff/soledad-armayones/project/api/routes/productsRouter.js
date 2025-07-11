@@ -24,7 +24,7 @@ productsRouter.post('/', jsonBodyParser, (request, response, next) => {
     }
 })
 
-productsRouter.get('/', (request, response, next) => {    
+productsRouter.get('/', (request, response, next) => {
 
     try {
         const authorization = request.headers.authorization

@@ -11,16 +11,17 @@ export const CreateProduct = ({ onCancelClicked, onProductCreated }) => {
         event.preventDefault()
 
         const form = event.target
-        
+
         const name = form.text
         const image = form.image.value
+
         const description = form.text.value
         const price = form.number
         const category = form.text
-       
+
 
         try {
-            logic.createProduct(name,image, description, price, category )
+            logic.createProduct(name, image, description, price, category)
                 .then(() => {
                     form.reset()
 
@@ -41,7 +42,7 @@ export const CreateProduct = ({ onCancelClicked, onProductCreated }) => {
     console.log('CreateProduct -> render')
 
     return <div className="mt-2">
-        <h1 className="text-xl">Create Product</h1>
+        <h1 className="text-xl">Create Post</h1>
 
         <form className="mt-2 flex flex-col gap-4" onSubmit={handleCreateProductSubmit}>
             <div className="flex flex-col gap">
@@ -57,7 +58,7 @@ export const CreateProduct = ({ onCancelClicked, onProductCreated }) => {
             <div className="flex justify-between">
                 <a className="underline" href="#" onClick={handleCancelClick}>Cancel</a>
 
-                <button className="bg-black text-white px-2" type="submit">Create</button>
+                <button className="bg-yellow-300 text-black px-2" type="submit">Create</button>
             </div>
         </form>
     </div>

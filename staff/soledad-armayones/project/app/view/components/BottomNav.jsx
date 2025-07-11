@@ -16,6 +16,10 @@ export function BottomNav() {
             <button onClick={() => navigate('/Search')}>
                 <AiOutlineSearch size={25} />
             </button>
+
+            <button onClick={() => navigate('/menu')}>
+                <span className="text-xs font-semibold cursor-pointer ">MENU</span>
+            </button>
             
             <button onClick={() => navigate('/Home')}>
                 <AiOutlineHome size={25} />
@@ -23,10 +27,6 @@ export function BottomNav() {
 
             <button onClick={() => navigate('/Carrito')}>
                 <AiOutlineShoppingCart size={25} />
-            </button>
-
-            <button onClick={() => navigate('/Chat')}>
-                <AiOutlineWechat size={25} />
             </button>
 
             

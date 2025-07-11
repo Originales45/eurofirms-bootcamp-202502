@@ -5,13 +5,15 @@ export const registerUser = (name, email, username, password, address, phone) =>
     validate.email(email)
     validate.username(username)
     validate.password(password)
+    validate.address(address)
+    validate.phone(phone)
 
     return fetch(import.meta.env.VITE_API_URL + '/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, email, username, password })
+        body: JSON.stringify({ name, email, username, password, address, phone })
     })
 
         .catch(error => { throw new SystemError('connection error') })
