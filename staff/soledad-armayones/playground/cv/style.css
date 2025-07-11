@@ -1,0 +1,61 @@
+* {
+    font-family: 'Courier New', Courier, monospace
+}
+
+
+/* uttility classes */
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex col {
+    flex-direction columns;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.bg-skyblue {
+    background-color: skyblue;
+}
+
+.bd-aquamarine {
+    background-color: aquamarine;
+}
+
+.bg-plum {
+    background-color: plum;
+}
+
+.bg.pink {
+    background-color: pink;
+}
+
+.p-x-10 {
+    padding: 10px;
+}
+
+.font-curier {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.radius-10px {
+    border-radius: 10px;
+}
+
+.w-50px {
+    width: 50px
+}
