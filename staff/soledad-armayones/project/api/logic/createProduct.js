@@ -5,7 +5,7 @@ import { validate, SystemError, DuplicityError, NotFoundError } from 'com'
 
 export const createProduct = (userId, name, image, category, description, price) => {
 
-    validate.userId(userId)
+    validate.id(userId)
     validate.name(name)
     validate.image(image)
     validate.category(category)

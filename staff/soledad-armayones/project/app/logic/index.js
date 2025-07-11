@@ -3,7 +3,7 @@ import { loginUser } from './loginUser'
 import { isUserLoggedIn } from './isUserLoggedIn'
 import { getUserUsername } from './getUserUsername'
 import { logoutUser } from './logoutUser'
-import { getProducts }  from './getProducts'
+import { getProducts } from './getProducts'
 
 export const logic = {
     registerUser,

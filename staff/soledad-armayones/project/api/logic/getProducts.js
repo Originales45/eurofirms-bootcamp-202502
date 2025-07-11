@@ -2,7 +2,7 @@ import { User, Product } from '../data/index.js'
 import { validate, SystemError, NotFoundError, AuthorshipError } from 'com'
 
 export const getProducts = (userId, category) => {
-    validate.userId(userId)
+    validate.id(userId)
 
     return User.findById(userId)
         .catch(error => { throw new SystemError('mongo error') })

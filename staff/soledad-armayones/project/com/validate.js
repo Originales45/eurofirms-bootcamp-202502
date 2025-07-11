@@ -6,7 +6,7 @@ export const validate = {
     name(name) {
         if (typeof name !== 'string') throw new ValidationError('invalid name type')
         if (name.length < 1) throw new ValidationError('invalid name min length')
-        if (name.length > 30) throw new ValidationError('invalid name max length')
+        if (name.length > 70) throw new ValidationError('invalid name max length')
     },
     email(email) {
         if (typeof email !== 'string') throw new ValidationError('invalid email type')
@@ -41,7 +41,7 @@ export const validate = {
 
     id(id) {
         if (typeof id !== 'string') throw new ValidationError('invalid Id type')
-        if (id.length !== 24) throw new ValidationError('invalid Id length')
+        if (id.length !== 100) throw new ValidationError('invalid Id length')
     },
 
     image(image) {
@@ -52,15 +52,11 @@ export const validate = {
         if (typeof description !== 'string') throw new ValidationError('invalid description type')
     },
 
-    
+
     category(category) {
         if (typeof category !== 'string') throw new ValidationError('invalid category type')
         if (category.length < 2) throw new ValidationError('invalid category min length')
         if (category.length > 50) throw new ValidationError('invalid category max length')
-    },
-
-    title(title) {
-        if (typeof title !== 'string') throw new ValidationError('invalid title type')
     },
 
     price(price) {

@@ -43,40 +43,43 @@ export const Login = ({ onRegisterClicked, onUserLoggedIn }) => {
 
     console.log('Login -> render')
 
-    return <div className="p-15">
-        <div className="w-full flex justify-center pt-3 ">
-            <img src="/logo.jpg" className="w-[50vw]" />
+    return (
+        <div className=" flex flex-col px-6 py-6 font-arial ">
+
+            <div className="p-5">
+                <i className="text-2xl font-arial text-yellow-400">Cofee Shop</i>
+
+                <div className="w-full flex justify-center pt-3 ">
+                    <img src="/logo.jpg" className="w-[50vw]" />
+                </div>
+
+                <div className="mt-2 p-2">
+                    <h1 className="text-xl text-yellow-400 ">Wellcom to Cofee Shop</h1>
+
+                    <form className="flex flex-col gap-4 p-3" onSubmit={handleLoginSubmit}>
+                        <div className="flex flex-col gap">
+                            <label htmlFor="username">Username</label>
+                            <input className="border-2 px-1" type="text" id="username" name="username" />
+                        </div>
+
+                        <div className="flex flex-col gap">
+                            <label htmlFor="password">Password</label>
+                            <input className="border-2 px-1" type="password" id="password" name="password" />
+                        </div>
+
+                        <div className="flex justify-between">
+                            <button type="button" onClick={handleRegisterClick} className="underline cursor-pointer">
+                                Registro
+                            </button>
+                            <button type="submit" className=" underline cursor-pointer  ">
+                                Entrar
+                            </button>
+
+                        </div>
+                    </form>
+                    <BottomNav />
+                </div>
+            </div>
         </div>
-
-        <div className="mt-2">
-            <h1 className="text-xl">Wellcom To Coffee Shop</h1>
-
-            <form className="flex flex-col gap-4" onSubmit={handleLoginSubmit}>
-                <div className="flex flex-col gap">
-                    <label htmlFor="username">Usuario</label>
-                    <input className="border-2 px-1" type="text" id="username" name="username" />
-                </div>
-
-                <div className="flex flex-col gap">
-                    <label htmlFor="password">Contraseña</label>
-                    <input className="border-2 px-1" type="password" id="password" name="password" />
-                </div>
-
-                <div className="flex justify-between">
-                    <button type="button" onClick={handleRegisterClick} className="underline cursor-pointer">
-                        Register
-                    </button>
-                    <button type="submit" className=" underline cursor-pointer text-yellow-500 ">
-                        Login
-                    </button>
-
-                </div>
-
-            </form>
-
-        </div>
-
-        <BottomNav />
-
-    </div>
+    )
 }

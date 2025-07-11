@@ -11,7 +11,7 @@ usersRouter.post('/', jsonBodyParser, (request, response, next) => {
     try {
         const { name, email, username, password, address, phone } = request.body
 
-        logic.registerProduct(name, email, username, password, address, phone)
+        logic.registerUser(name, email, username, password, address, phone)
             .then(() => response.status(201).send())
             .catch(error => next(error))
     } catch (error) {
@@ -22,10 +22,9 @@ usersRouter.post('/', jsonBodyParser, (request, response, next) => {
 usersRouter.post('/auth', jsonBodyParser, (request, response, next) => {
     try {
         const { username, password } = request.body
-
         logic.authenticateUser(username, password)
-            .then(user => {
-                const token = jwt.sign({ sub: user.id, role: user.role }, JWT_SECRET)
+            .then(userId => {
+                const token = jwt.sign({ sub: userId }, JWT_SECRET)
 
                 response.status(200).json(token)
             })
@@ -48,4 +47,5 @@ usersRouter.get('/self/username', (request, response, next) => {
     } catch (error) {
         next(error)
     }
+
 })

@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 
 import { logic } from '../logic'
 
-import { Product } from './components/Product'
-import { CreateProduct } from './CreateProduct'
+import { Clothe } from './components/Clothe'
+import { CreateClothe } from './components/CreateClothe'
 import { useContext } from '../context'
 
 export const Home = ({ onUserLoggedOut }) => {
@@ -73,10 +73,10 @@ export const Home = ({ onUserLoggedOut }) => {
             onCancelClicked={handleCreateProductCancelClicked}
             onProductCreated={handleProductsCreated}
         />}
-       
+
 
         <BottomNav />
 
-        </div>
-    
+    </div>
+
 }

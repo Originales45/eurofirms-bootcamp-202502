@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router'
 
 import { Landing } from './view/Landing'
@@ -7,11 +7,10 @@ import { Login } from './view/Login'
 import { Alert } from './view/components/Alert'
 import { Confirm } from './view/components/Confirm'
 import { Context } from './context'
-import { Products } from './view/components/Products'
-
 
 import { logic } from './logic'
 import { Menu } from './view/Menu'
+import { Products } from './view/components/Products'
 
 
 export const App = () => {
@@ -22,17 +21,11 @@ export const App = () => {
     const [confirmAction, setConfirmAction] = useState(null)
 
     const handleRegisterClicked = () => navigate('/register')
-
     const handleLoginClicked = () => navigate('/login')
-
     const handleUserRegistered = () => navigate('/login')
-
     const handleUserLoggedIn = () => navigate('/menu')
-
     const handleUserLoggedOut = () => navigate('/login')
-
     const handleMenuClicked = () => navigate('/menu')
-
     const handleMenuLoggedIn = () => navigate('/menu')
 
     const handleAlertAccepted = () => setAlertMessage('')
@@ -101,7 +94,7 @@ export const App = () => {
                 } />
 
 
-                <Route path="/productss/:category" element={<Products />} />
+                <Route path="/products/:category" element={<Products />} />
 
             </Routes>
         </Context.Provider>

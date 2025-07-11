@@ -1,4 +1,4 @@
-import { AiOutlineUser,  AiOutlineSearch, AiOutlineHome, AiOutlineShoppingCart, AiOutlineWechat } from 'react-icons/ai'
+import { AiOutlineUser, AiOutlineSearch, AiOutlineHome, AiOutlineShoppingCart, AiOutlineWechat } from 'react-icons/ai'
 import { useNavigate } from 'react-router'
 
 
@@ -12,7 +12,7 @@ export function BottomNav() {
             <button onClick={() => navigate('/login')}>
                 <AiOutlineUser size={25} />
             </button>
-            
+
             <button onClick={() => navigate('/Search')}>
                 <AiOutlineSearch size={25} />
             </button>
@@ -20,7 +20,7 @@ export function BottomNav() {
             <button onClick={() => navigate('/menu')}>
                 <span className="text-xs font-semibold cursor-pointer ">MENU</span>
             </button>
-            
+
             <button onClick={() => navigate('/Home')}>
                 <AiOutlineHome size={25} />
             </button>
@@ -29,7 +29,7 @@ export function BottomNav() {
                 <AiOutlineShoppingCart size={25} />
             </button>
 
-            
+
         </nav>
     )
 }

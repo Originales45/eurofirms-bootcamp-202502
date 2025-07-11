@@ -48,7 +48,7 @@ const errors = {
     AuthorshipError,
     SystemError,
     AuthorizationError
-    
+
 }
 
 export default errors

@@ -21,6 +21,7 @@ export const Register = ({ onLoginClicked, onUserRegistered }) => {
         const address = form.address.value
         const phone = form.phone.value
 
+
         try {
             logic.registerUser(name, email, username, password, address, phone)
                 .then(() => {
@@ -39,61 +40,62 @@ export const Register = ({ onLoginClicked, onUserRegistered }) => {
 
     console.log('Register -> render')
 
+
     return <div className="p-25">
-                <div className="w-full flex justify-center pt-3">
-                    <img src="/logo.jpg" className="w-[25vw]" />
+        <div className="w-full flex justify-center pt-3">
+            <img src="/logo.jpg" className="w-[25vw]" />
+        </div>
+
+        <div className="mt-2">
+            <h1 className="text-xl">Register</h1>
+
+            <form className="mt-2 flex flex-col gap-4" onSubmit={handleRegisterSubmit}>
+                <div className="flex flex-col gap">
+                    <label htmlFor="name">Name</label>
+                    <input className="border-2 px-1" type="text" id="name" name="name" />
                 </div>
 
-                <div className="mt-2">
-                    <h1 className="text-xl">Register</h1>
- 
-                    <form className="mt-2 flex flex-col gap-4" onSubmit={handleRegisterSubmit}>
-                        <div className="flex flex-col gap">
-                        <label htmlFor="name">Nombre</label>
-                            <input className="border-2 px-1" type="text" id="name" name="name" />
-                        </div>
+                <div className="flex flex-col gap">
+                    <label htmlFor="email">Email</label>
+                    <input className="border-2 px-1" type="email" id="email" name="email" />
+                </div>
 
-                        <div className="flex flex-col gap">
-                            <label htmlFor="email">E-mail</label>
-                            <input className="border-2 px-1" type="email" id="email" name="email" />
-                        </div>
+                <div className="flex flex-col gap">
+                    <label htmlFor="username">User Name</label>
+                    <input className="border-2 px-1" type="text" id="username" name="username" />
+                </div>
 
-                        <div className="flex flex-col gap">
-                            <label htmlFor="username">Nombre de usuario</label>
-                            <input className="border-2 px-1" type="text" id="username" name="username" />
-                        </div>
+                <div className="flex flex-col gap">
+                    <label htmlFor="password">Password</label>
+                    <input className="border-2 px-1" type="password" id="password" name="password" />
+                </div>
 
-                        <div className="flex flex-col gap">
-                            <label htmlFor="password">Contraseña</label>
-                            <input className="border-2 px-1" type="password" id="password" name="password" />
-                            </div>
+                <div className="flex flex-col gap">
+                    <label htmlFor="address">Address</label>
+                    <input className="border-2 px-1" type="text" id="address" name="address" />
+                </div>
 
-                        <div className="flex flex-col gap">
-                            <label htmlFor="address">Dirección</label>
-                            <input className="border-2 px-1" type="text" id="address" name="address" />
-                        </div>
+                <div className="flex flex-col gap">
+                    <label htmlFor="phone">Phone</label>
+                    <input className="border-2 px-1" type="text" id="phone" name="phone" />
+                </div>
 
-                        <div className="flex flex-col gap">
-                            <label htmlFor="phone">Teléfono</label>
-                        <input className="border-2 px-1" type="text" id="phone" name="phone" />
-                        </div>
+                <div className="flex justify-between">
+                    <button type="button" onClick={handleLoginClick} className="underline">
+                        Register
 
-                        <div className="flex justify-between">
-                            <button type="button" onClick={handleLoginClick} className="underline">
-                            Register
-                            
-                            </button>
-                            <button type="submit" className=" underline cursor-pointer text-yellow-500 ">
-                            Login
-                            </button>
-                        </div>
-                
-                    </form>
+                    </button>
+                    <button type="submit" className=" underline cursor-pointer text-yellow-500 ">
+                        Login
+                    </button>
+                </div>
 
-            <BottomNav/>
+            </form>
+
+            <BottomNav />
 
         </div>
     </div>
-      
-   
+
+
 }
