@@ -1,24 +1,24 @@
 import { User, Product } from '../data/index.js'
-import { validate, SystemError, NotFoundError, AuthorshipError } from 'com'
+import { validate, SystemError, } from 'com'
 
-export const getProducts = (userId, category) => {
-    validate.id(userId)
+export const getProducts = (category) => {
 
-    return User.findById(userId)
-        .catch(error => { throw new SystemError('mongo error') })
-        .then(user => {
-            if (!user) throw new NotFoundError('user not found')
+    const query = {}
+    
+    const categories = ['Coffee-machine', 'Refrigerator', 'Food-exhibitor']
+        if (category) {
+        validate.category(category.toUpperCase())
+        query.category = category.toUpperCase()
+    }
 
-            return Product.find({ category }).select('-__v').lean()
-                .catch(error => { throw new SystemError(error.message) })
-                .then(products => {
-                    products.forEach(product => {
-                        product.id = product._id.toString()
-                        delete product._id
+    return Product.find(query).select('-__v').lean()
+        .catch(() => { throw new SystemError('mongo error') })
+        .then(products => {
+            products.forEach(product => {
+                product.id = product._id.toString()
+                delete product._id
+            })
 
-                    })
-
-                    return products
-                })
+            return products
         })
 }

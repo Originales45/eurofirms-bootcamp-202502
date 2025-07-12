@@ -1,6 +1,6 @@
 import { User, Product } from '../data/index.js'
 
-import { validate, SystemError, DuplicityError, NotFoundError } from 'com'
+import { validate, SystemError, NotFoundError } from 'com'
 
 
 export const createProduct = (userId, name, image, category, description, price) => {
@@ -12,7 +12,7 @@ export const createProduct = (userId, name, image, category, description, price)
     validate.description(description)
     validate.price(price)
 
-    return User.findById(userId)
+    return User.id(userId)
         .catch(error => {
             throw new
                 SystemError(error.message)

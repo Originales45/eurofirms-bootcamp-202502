@@ -11,17 +11,17 @@ export const Menu = () => {
 
         <div className="mt-20 space-y-6 text-lg">
             <button
-                onClick={() => navigate('/product/coffee-machine')}
+                onClick={() => navigate('/product/Coffee-machine')}
                 className="text-left cursor-pointer block mb-8">Cofee-Machine
             </button>
 
             <button
-                onClick={() => navigate('/product/refrigerator')}
+                onClick={() => navigate('/product/Refrigerator')}
                 className="text-left cursor-pointer block mb-8">Refrigerator
             </button>
 
             <button
-                onClick={() => navigate('/products/expositors')}
+                onClick={() => navigate('/products/Food-expositors')}
                 className="text-left cursor-pointer block mb-8">Food-Expositors
             </button>
 

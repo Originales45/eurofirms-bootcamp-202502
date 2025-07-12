@@ -10,5 +10,6 @@ export const data = {
 
     removeToken() {
         delete sessionStorage.token
-    }
+    },
+
 }

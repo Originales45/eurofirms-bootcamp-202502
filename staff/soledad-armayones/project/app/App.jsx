@@ -86,14 +86,14 @@ export const App = () => {
                     />
                 } />
 
-                <Route path="/menu" element={
-                    <Menu
-                        onMenuClicked={handleMenuClicked}
-                        onMenuLoggedIn={handleMenuLoggedIn}
+                <Route path="/login" element={
+                    <Login
+                        onRegisterClicked={handleRegisterClicked}
+                        onUserLoggedIn={handleUserLoggedIn}
                     />
                 } />
 
-
+                
                 <Route path="/products/:category" element={<Products />} />
 
             </Routes>

@@ -5,7 +5,7 @@ connect('mongodb://localhost:27017/test-shopapp')
     .then(() => {
         try {
             return authenticateUser('Juan54', '123123123')
-                .then(user => console.log('user authenticated', user))
+                .then(userId => console.log('user authenticated', userId))
                 .catch(error => console.error(error))
         } catch (error) {
             console.error(error)

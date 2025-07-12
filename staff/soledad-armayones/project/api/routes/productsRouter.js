@@ -14,9 +14,9 @@ productsRouter.post('/', jsonBodyParser, (request, response, next) => {
 
         const { sub: userId } = jwt.verify(token, JWT_SECRET)
 
-        const { image, category, text } = request.body
+        const { userid, name, image, category, description, price } = request.body
 
-        logic.createProduct(userId, image, description, price, category)
+        logic.createProduct(userId, name, image, category, description, price)
             .then(() => response.status(201).send())
             .catch(error => next(error))
     } catch (error) {
@@ -24,15 +24,13 @@ productsRouter.post('/', jsonBodyParser, (request, response, next) => {
     }
 })
 
-productsRouter.get('/', (request, response, next) => {
-
+productsRouter.get('/:category', (request, response, next) => {
     try {
-        const authorization = request.headers.authorization
-        const token = authorization.slice(7)
 
-        const { sub: userId } = jwt.verify(token, JWT_SECRET)
 
-        logic.getProducts(userId)
+        const { category } = request.params
+
+        logic.getProducts(category)
             .then(products => response.status(200).json(products))
             .catch(error => next(error))
     } catch (error) {
@@ -40,16 +38,16 @@ productsRouter.get('/', (request, response, next) => {
     }
 })
 
-productsRouter.delete('/:productId', (request, response, next) => {
+productsRouter.delete('/:postId', (request, response, next) => {
     try {
         const authorization = request.headers.authorization
         const token = authorization.slice(7)
 
         const { sub: userId } = jwt.verify(token, JWT_SECRET)
 
-        const { productId } = request.params
+        const { postId } = request.params
 
-        logic.removeProduct(userId, productId)
+        logic.removeProduct(userId, postId)
             .then(() => response.status(204).send())
             .catch(error => next(error))
     } catch (error) {

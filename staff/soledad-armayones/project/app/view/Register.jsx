@@ -43,7 +43,7 @@ export const Register = ({ onLoginClicked, onUserRegistered }) => {
 
     return <div className="p-25">
         <div className="w-full flex justify-center pt-3">
-            <img src="/logo.jpg" className="w-[25vw]" />
+            <img src="/logo.jpg" className="w-[50vw]" />
         </div>
 
         <div className="mt-2">
@@ -61,7 +61,7 @@ export const Register = ({ onLoginClicked, onUserRegistered }) => {
                 </div>
 
                 <div className="flex flex-col gap">
-                    <label htmlFor="username">User Name</label>
+                    <label htmlFor="username">UserName</label>
                     <input className="border-2 px-1" type="text" id="username" name="username" />
                 </div>
 

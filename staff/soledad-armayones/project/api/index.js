@@ -14,15 +14,19 @@ connect(MONGO_URL)
 
         api.use(cors())
 
-        api.get('/', (request, response) => {
-            response.send('Hello! API here...')
+        api.get('/hello', (request, response) => {
+            response.send('Hello | 🤞')
         })
 
         api.use('/users', usersRouter)
         api.use('/products', productsRouter)
 
+
         api.use(errorHandler)
 
-        api.listen(PORT, () => console.log(`API listening on port ${PORT}`))
+        api.listen(PORT, () => console.log('API lintening on port ' + PORT))
     })
+
+    .catch(error => console.error(error))
+
     .catch(error => console.error(error))

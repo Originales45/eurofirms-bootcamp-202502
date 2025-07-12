@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 
 import { logic } from '../logic'
 
-import { Clothe } from './components/Clothe'
-import { CreateClothe } from './components/CreateClothe'
+import { Product } from './components/Product'
+import { CreateProduct } from './components/CreateProduct'
 import { useContext } from '../context'
 
 export const Home = ({ onUserLoggedOut }) => {
@@ -51,7 +51,6 @@ export const Home = ({ onUserLoggedOut }) => {
             <img src="/logo.jpg" className="w-[50vw]" />
         </div>
 
-
         <div className="mt-2">
             <h1 className="text-xl">Wellcome, {username}!</h1>
 
@@ -73,7 +72,6 @@ export const Home = ({ onUserLoggedOut }) => {
             onCancelClicked={handleCreateProductCancelClicked}
             onProductCreated={handleProductsCreated}
         />}
-
 
         <BottomNav />
 

@@ -36,14 +36,27 @@ const user = new Schema({
 
     phone: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
+
+
+    role: {
+        type: String,
+        required: true,
+        enum: ['regular', 'moderator', 'administrator'],
+        default: 'regular'
+    }
 
 
 })
 
 const product = new Schema({
+
+    author: {
+        type: ObjectId,
+        ref: 'User',
+        required: true
+    },
 
     name: {
         type: String,
@@ -55,6 +68,14 @@ const product = new Schema({
         required: true,
     },
 
+    
+        category: {
+        type: String,
+        required: true,
+        enum: ['coffee-machine',  'refrigerator', 'food-exhibitor']
+    },
+
+
     description: {
         type: String,
         required: true
@@ -64,15 +85,7 @@ const product = new Schema({
         type: Number,
         required: true,
 
-    },
-    category: {
-        type: String,
-        required: true,
-        enum: ['coffee-machine', 'refrigerator', 'food-exhibitor']
-    },
-
-
-
+    }
 
 })
 

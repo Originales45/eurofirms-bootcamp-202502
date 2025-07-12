@@ -8,6 +8,7 @@ export const validate = {
         if (name.length < 1) throw new ValidationError('invalid name min length')
         if (name.length > 70) throw new ValidationError('invalid name max length')
     },
+
     email(email) {
         if (typeof email !== 'string') throw new ValidationError('invalid email type')
         if (email.length < 6) throw new ValidationError('invalid email min length')
@@ -34,14 +35,15 @@ export const validate = {
     },
 
     phone(phone) {
-        if (typeof phone !== 'string') throw new ValidationError('invalid phone type')
+        if (typeof phone !== number) throw new ValidationError('invalid phone type')
         if (phone.length < 9) throw new ValidationError('invalid phone min length')
         if (phone.length > 15) throw new ValidationError('invalid phone max length')
     },
 
     id(id) {
         if (typeof id !== 'string') throw new ValidationError('invalid Id type')
-        if (id.length !== 100) throw new ValidationError('invalid Id length')
+        if (phone.length < 2) throw new ValidationError('invalid phone min length')
+        if (id.length > 20) throw new ValidationError('invalid Id length')
     },
 
     image(image) {
