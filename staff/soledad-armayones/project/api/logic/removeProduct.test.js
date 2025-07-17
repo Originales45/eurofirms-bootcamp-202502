@@ -4,7 +4,7 @@ import { removeProduct } from './removeProduct.js'
 connect('mongodb://localhost:27017/test-shopapp')
     .then(() => {
         try {
-            return removeProduct('686d32bb3c2f168e0265a411', '686d70d2f80f2d18bd2574ca')
+            return removeProduct('6870ee42dc0b360bbfa81fc2', '68790ef548c6877de6dbed70')
                 .then(() => console.log('product removed'))
                 .catch(error => console.error(error))
         } catch (error) {

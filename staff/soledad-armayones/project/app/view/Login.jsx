@@ -1,13 +1,12 @@
 import { CredentialsError, NotFoundError, ValidationError } from 'com'
 import { logic } from '../logic'
 import { useContext } from '../context'
-import { useNavigate } from 'react-router'
 import { BottomNav } from './components/BottomNav'
+import { Routes, Route, useNavigate, Navigate } from 'react-router'
 
 export const Login = ({ onRegisterClicked, onUserLoggedIn }) => {
     const { alert } = useContext()
-    const navigate = useNavigate()
-
+    
     const handleRegisterClick = () => onRegisterClicked()
 
     const handleLoginSubmit = event => {
@@ -43,9 +42,9 @@ export const Login = ({ onRegisterClicked, onUserLoggedIn }) => {
 
     console.log('Login -> render')
 
-    return (
-        <div className=" flex flex-col px-6 py-6 font-arial ">
 
+    return (
+        <div className="p-5">
             <div className="w-full flex justify-center pt-3 ">
                     <img src="/logo.jpg" className="w-[50vw]" />
                 </div>
@@ -53,22 +52,32 @@ export const Login = ({ onRegisterClicked, onUserLoggedIn }) => {
                 <form className="flex flex-col gap-4 p-3" onSubmit={handleLoginSubmit}>
                         <div className="flex flex-col gap">
                             <label htmlFor="username">Username</label>
-                            <input className="border-2 px-1" type="text" id="username" name="username" />
+                            <input 
+                                className="border-2 px-1" type="text" id="username" name="username"
+                                placeholder="Username" 
+                            />
                         </div>
 
                         <div className="flex flex-col gap">
                             <label htmlFor="password">Password</label>
-                            <input className="border-2 px-1" type="password" id="password" name="password" />
+                            <input  
+                                className="border-2 px-1" type="password" id="password" name="password" 
+                                placeholder="Password"
+                            />
                         </div>
 
                         <div className="flex justify-between">
-                            <button type="button" onClick={handleRegisterClick} className="underline cursor-pointer">
-                                Registro
+                            <button 
+                                type="button" onClick={handleRegisterClick} className="underline cursor-pointer"
+                            >
+                                Register
                             </button>
-                            <button type="submit" className=" underline cursor-pointer  ">
-                                Entrar
+                            <button 
+                                type="submit" 
+                                className=" p-1 bg-black cursor-pointer text-yellow-500 "
+                            >                             
+                                Loging
                             </button>
-
                         </div>
                     </form>
                     <BottomNav />

@@ -4,21 +4,21 @@ import { validate, SystemError, } from 'com'
 export const getProducts = (category) => {
 
     const query = {}
-    
-    const categories = ['Coffee-machine', 'Refrigerator', 'Food-exhibitor']
-        if (category) {
-        validate.category(category.toUpperCase())
-        query.category = category.toUpperCase()
+
+    if (category) {
+        validate.category(category)
+        query.category = category
+
     }
 
-    return Product.find(query).select('-__v').lean()
+    return Product.find(query).select('-__v').populate('author', 'username').lean()
         .catch(() => { throw new SystemError('mongo error') })
         .then(products => {
             products.forEach(product => {
                 product.id = product._id.toString()
                 delete product._id
-            })
 
+            })
             return products
         })
 }

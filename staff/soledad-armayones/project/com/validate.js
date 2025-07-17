@@ -3,6 +3,7 @@ import { ValidationError } from './errors.js'
 const categories = ['coffee-machine', 'refrigerator', 'food-exhibitor']
 
 export const validate = {
+
     name(name) {
         if (typeof name !== 'string') throw new ValidationError('invalid name type')
         if (name.length < 1) throw new ValidationError('invalid name min length')
@@ -12,13 +13,13 @@ export const validate = {
     email(email) {
         if (typeof email !== 'string') throw new ValidationError('invalid email type')
         if (email.length < 6) throw new ValidationError('invalid email min length')
-        if (email.length > 30) throw new ValidationError('invalid email max length')
+        if (email.length > 50) throw new ValidationError('invalid email max length')
     },
 
     username(username) {
         if (typeof username !== 'string') throw new ValidationError('invalid username type')
         if (username.length < 3) throw new ValidationError('invalid username min length')
-        if (username.length > 20) throw new ValidationError('invalid username max length')
+        if (username.length > 50) throw new ValidationError('invalid username max length')
     },
 
     password(password) {
@@ -35,15 +36,14 @@ export const validate = {
     },
 
     phone(phone) {
-        if (typeof phone !== number) throw new ValidationError('invalid phone type')
+        if (typeof phone !== 'string') throw new ValidationError('invalid phone type')
         if (phone.length < 9) throw new ValidationError('invalid phone min length')
         if (phone.length > 15) throw new ValidationError('invalid phone max length')
     },
 
     id(id) {
         if (typeof id !== 'string') throw new ValidationError('invalid Id type')
-        if (phone.length < 2) throw new ValidationError('invalid phone min length')
-        if (id.length > 20) throw new ValidationError('invalid Id length')
+        if (id.length !== 24) throw new ValidationError('invalid id length')
     },
 
     image(image) {
@@ -59,8 +59,9 @@ export const validate = {
         if (typeof category !== 'string') throw new ValidationError('invalid category type')
         if (category.length < 2) throw new ValidationError('invalid category min length')
         if (category.length > 50) throw new ValidationError('invalid category max length')
+        // if (category !== 'coffee-machine' || category !== 'refrigerator' || category !== 'food-exhibitor') throw new ValidationError('invalid category')
+        if (!categories.includes(category)) throw new ValidationError('invalid category')
     },
-
     price(price) {
         if (typeof price !== 'number') throw new ValidationError('invalid price type')
     },

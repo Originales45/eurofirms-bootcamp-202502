@@ -1,1 +1,1 @@
-curl -X GET -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ODRkMzRiYTJmMjZiOWU0YjI5M2IzMGQiLCJpYXQiOjE3NDk4OTY0NTF9.WzACaNgQuFpKfg4dhqznGKGLBWnCCpSU5WbPmXap5iw' http://localhost:8080/posts -v
+curl -X GET -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NTI3NjI2NTl9.6IO14sE_wkkdl9QOh-cAoYmtgUGDmoao9Uj7_ytVD0k' http://localhost:8080/products/refrigerator -v

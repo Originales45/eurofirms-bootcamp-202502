@@ -14,7 +14,7 @@ productsRouter.post('/', jsonBodyParser, (request, response, next) => {
 
         const { sub: userId } = jwt.verify(token, JWT_SECRET)
 
-        const { userid, name, image, category, description, price } = request.body
+        const { name, image, category, description, price } = request.body
 
         logic.createProduct(userId, name, image, category, description, price)
             .then(() => response.status(201).send())

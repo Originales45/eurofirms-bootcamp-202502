@@ -12,7 +12,7 @@ export const createProduct = (userId, name, image, category, description, price)
     validate.description(description)
     validate.price(price)
 
-    return User.id(userId)
+    return User.findById (userId)
         .catch(error => {
             throw new
                 SystemError(error.message)
@@ -21,7 +21,7 @@ export const createProduct = (userId, name, image, category, description, price)
             if (!user) throw new
                 NotFoundError('user not found')
 
-            return Product.create({ name, image, category, description, price })
+            return Product.create({ author: userId, name, image, category, description, price })
                 .catch(error => {
                     throw new SystemError(error.message)
                 })

@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router'
-
 import { Landing } from './view/Landing'
 import { Register } from './view/Register'
 import { Login } from './view/Login'
 import { Alert } from './view/components/Alert'
 import { Confirm } from './view/components/Confirm'
 import { Context } from './context'
-
 import { logic } from './logic'
 import { Menu } from './view/Menu'
 import { Products } from './view/components/Products'
+import { CreateProduct } from './view/components/CreateProduct'
+import { BottomNav } from './view/components/BottomNav'
 
 
 export const App = () => {
@@ -24,7 +24,6 @@ export const App = () => {
     const handleLoginClicked = () => navigate('/login')
     const handleUserRegistered = () => navigate('/login')
     const handleUserLoggedIn = () => navigate('/menu')
-    const handleUserLoggedOut = () => navigate('/login')
     const handleMenuClicked = () => navigate('/menu')
     const handleMenuLoggedIn = () => navigate('/menu')
 
@@ -59,44 +58,53 @@ export const App = () => {
             confirm: handleShowConfirm
         }}>
             {alertMessage && <Alert message={alertMessage} onAccepted={handleAlertAccepted} />}
-
             {confirmMessage && <Confirm message={confirmMessage} onCancelled={handleCancelConfirm} onAccepted={handleAcceptConfirm} />}
 
-            <Routes>
-                <Route path="/" element={<Navigate to="/landing" replace />} />
+            <div className="pb-16">
 
-                <Route path="/landing" element={
-                    <Landing
-                        onRegisterClicked={handleRegisterClicked}
-                        onLoginClicked={handleLoginClicked}
-                    />
-                } />
+                <Routes>
+                    <Route path="/" element={<Navigate to="/landing" replace />} />
 
-                <Route path="/register" element={
-                    <Register
-                        onLoginClicked={handleLoginClicked}
-                        onUserRegistered={handleUserRegistered}
-                    />
-                } />
+                    <Route path="/landing" element={
+                        <Landing
+                            onRegisterClicked={handleRegisterClicked}
+                            onLoginClicked={handleLoginClicked}
+                        />
+                    } />
 
-                <Route path="/login" element={
-                    <Login
-                        onRegisterClicked={handleRegisterClicked}
-                        onUserLoggedIn={handleUserLoggedIn}
-                    />
-                } />
+                    <Route path="/register" element={
+                        <Register
+                            onLoginClicked={handleLoginClicked}
+                            onUserRegistered={handleUserRegistered}
+                        />
+                    } />
 
-                <Route path="/login" element={
-                    <Login
-                        onRegisterClicked={handleRegisterClicked}
-                        onUserLoggedIn={handleUserLoggedIn}
-                    />
-                } />
+                    <Route path="/login" element={
+                        <Login
+                            onRegisterClicked={handleRegisterClicked}
+                            onUserLoggedIn={handleUserLoggedIn}
+                        />
+                    } />
 
-                
-                <Route path="/products/:category" element={<Products />} />
+                    <Route path="/menu" element={
+                        <Menu
+                            onMenuClicked={handleMenuClicked}
+                            onMenuLoggedIn={handleMenuLoggedIn}
+                        />
+                    } />
 
-            </Routes>
+
+                    <Route path="/products/:category" element={<Products />} />
+
+                    <Route path="/create-clothe" element={
+                        <CreateProduct
+                            onProductCreated={() => navigate('/menu')}
+                        />
+                    } />
+
+
+                </Routes>
+            </div>
         </Context.Provider>
     )
 }

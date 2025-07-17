@@ -1,5 +1,5 @@
 import { data } from '../data'
-import { validate, SystemError, errors } from 'com'
+import { validate, SystemError, errors, AuthorizationError } from 'com'
 
 
 export const getProducts = (category) => {
@@ -8,6 +8,9 @@ export const getProducts = (category) => {
 
     return fetch(import.meta.env.VITE_API_URL + '/products/' + category, {
         method: 'GET',
+            headers: {
+                Authorization: 'Bearer ' + data.getToken()
+            }
 
     })
         .catch(error => { throw new SystemError('connection error') })
@@ -17,7 +20,7 @@ export const getProducts = (category) => {
             if (status === 200)
                 return response.json()
                     .catch(error => { throw new SystemError('json error') })
-                    .then(product => product)
+                    .then(clothe => clothe)
 
             return response.json()
                 .catch(error => { throw new SystemError('json error') })

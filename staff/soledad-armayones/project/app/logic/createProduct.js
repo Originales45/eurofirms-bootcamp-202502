@@ -1,27 +1,28 @@
+import { data } from '../data'
 import { validate, SystemError, errors } from 'com'
 
-export const registerUser = (name, email, username, password, address, phone) => {
+export const createProduct = (userId, name, image, category, description, price) => {
 
+    validate.id(userId)
     validate.name(name)
-    validate.email(email)
-    validate.username(username)
-    validate.password(password)
-    validate.address(address)
-    validate.phone(phone)
+    validate.image(image)
+    validate.category(category)
+    validate.description(description)
+    validate.price(price)
 
-    return fetch(import.meta.env.VITE_API_URL + '/users', {
+    return fetch(import.meta.env.VITE_API_URL + '/product', {
         method: 'POST',
         headers: {
+            Authorization: 'Bearer ' + data.getToken(),
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, email, username, password, address, phone })
+        body: JSON.stringify({ category, size, image, title, description })
     })
-
         .catch(error => { throw new SystemError('connection error') })
         .then(response => {
             const { status } = response
 
-            if (status === 201) return
+            if (status === 201) return Promise.resolve()
 
             return response.json()
                 .catch(error => { throw new SystemError('json error') })
@@ -31,8 +32,6 @@ export const registerUser = (name, email, username, password, address, phone) =>
                     const constructor = errors[error] || SystemError
 
                     throw new constructor(message)
-
-
                 })
         })
 }

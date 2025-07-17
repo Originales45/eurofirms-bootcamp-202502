@@ -2,7 +2,7 @@ import { logic } from '../../logic'
 
 import { useContext } from '../../context'
 
-export const Product = ({ Product, onProductDeleted }) => {
+export const Product = ({ product, onProductDeleted }) => {
     const { alert, confirm } = useContext()
 
     const handleDeleteClick = () => {
@@ -28,11 +28,19 @@ export const Product = ({ Product, onProductDeleted }) => {
     console.log('Product -> render')
 
     return <article>
-        <h3 className="font-arial">{product.title}</h3>
+        <h1 className="font-arial text-xl w[20]">{product.author.username}</h1>
 
-        <img src={product.image} alt="" />
+        <img src={product.image}  />
 
+        <p>{product.name}</p>
+
+        <p>{product.category}</p>
+        
         <p>{product.description}</p>
+
+        <p>{product.price}€</p>
+
+        <button className="bg-black text-yellow-300 px-2 mx-1 cursor-pointer" onClick={handleDeleteClick}>Borrar</button>
 
     </article>
 }

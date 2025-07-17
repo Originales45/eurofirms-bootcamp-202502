@@ -1,4 +1,4 @@
-import mongoose, { trusted } from 'mongoose'
+import mongoose from 'mongoose'
 
 const { Schema, model } = mongoose
 const { Types } = Schema
@@ -6,11 +6,13 @@ const { ObjectId } = Types
 
 const user = new Schema({
     name: {
+
         type: String,
         required: true
     },
 
     email: {
+
         type: String,
         required: true,
         unique: true
@@ -18,6 +20,7 @@ const user = new Schema({
     },
 
     username: {
+
         type: String,
         required: true,
         unique: true
@@ -29,18 +32,20 @@ const user = new Schema({
     },
 
     address: {
+
         type: String,
         required: true,
-        unique: true
     },
 
     phone: {
+
         type: String,
         required: true
     },
 
 
     role: {
+
         type: String,
         required: true,
         enum: ['regular', 'moderator', 'administrator'],
@@ -53,35 +58,41 @@ const user = new Schema({
 const product = new Schema({
 
     author: {
+
         type: ObjectId,
         ref: 'User',
         required: true
     },
 
     name: {
+
         type: String,
         required: true
     },
 
     image: {
+
         type: String,
         required: true,
     },
 
-    
-        category: {
+
+    category: {
+
         type: String,
         required: true,
-        enum: ['coffee-machine',  'refrigerator', 'food-exhibitor']
+        enum: ['coffee-machine', 'refrigerator', 'food-exhibitor']
     },
 
 
     description: {
+
         type: String,
         required: true
     },
 
     price: {
+
         type: Number,
         required: true,
 
@@ -92,7 +103,4 @@ const product = new Schema({
 const User = model('User', user)
 const Product = model('Product', product)
 
-export {
-    User,
-    Product
-}
+export { User, Product }

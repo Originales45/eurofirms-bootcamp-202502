@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router'
 import { BottomNav } from './components/BottomNav'
 
+
 export const Menu = () => {
     const navigate = useNavigate()
 
@@ -10,23 +11,34 @@ export const Menu = () => {
         </div>
 
         <div className="mt-20 space-y-6 text-lg">
-            <button
-                onClick={() => navigate('/product/Coffee-machine')}
-                className="text-left cursor-pointer block mb-8">Cofee-Machine
-            </button>
+            <a
+                onClick={() => navigate('/products/coffee-machine')}
+                className="text-left cursor-pointer block mb-8"
+            >
 
-            <button
-                onClick={() => navigate('/product/Refrigerator')}
-                className="text-left cursor-pointer block mb-8">Refrigerator
-            </button>
+                Cofee-Machine
+            </a>
 
-            <button
-                onClick={() => navigate('/products/Food-expositors')}
-                className="text-left cursor-pointer block mb-8">Food-Expositors
-            </button>
+            <a
+                onClick={() => navigate('/products/refrigerator')}
+                className="text-left cursor-pointer block mb-8"
+            >
+
+                Refrigerator
+            </a>
+
+            <a
+                onClick={() => navigate('/products/food-exhibitor')}
+                className="text-left cursor-pointer block mb-8"
+            >
+
+                Food-Exhibitors
+            </a>
+
+            <BottomNav />
 
         </div>
-        <BottomNav />
+
     </div>
 
 }

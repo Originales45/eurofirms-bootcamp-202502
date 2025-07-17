@@ -1,12 +1,10 @@
 import { logic } from '../logic'
 import { useContext } from '../context'
-import { useNavigate } from 'react-router'
 import { BottomNav } from './components/BottomNav'
 
 export const Register = ({ onLoginClicked, onUserRegistered }) => {
     const { alert } = useContext()
-    const navigate = useNavigate()
-
+    
     const handleLoginClick = () => onLoginClicked()
 
     const handleRegisterSubmit = event => {
@@ -26,10 +24,12 @@ export const Register = ({ onLoginClicked, onUserRegistered }) => {
             logic.registerUser(name, email, username, password, address, phone)
                 .then(() => {
                     form.reset()
+
                     onUserRegistered()
                 })
                 .catch(error => {
                     console.error(error)
+                    
                     alert(error.message)
                 })
         } catch (error) {
@@ -49,44 +49,51 @@ export const Register = ({ onLoginClicked, onUserRegistered }) => {
         <div className="mt-2">
             <h1 className="text-xl">Register</h1>
 
-            <form className="mt-2 flex flex-col gap-4" onSubmit={handleRegisterSubmit}>
+            <form className="mt-2 flex flex-col gap-4 p-3" onSubmit={handleRegisterSubmit}>
                 <div className="flex flex-col gap">
                     <label htmlFor="name">Name</label>
-                    <input className="border-2 px-1" type="text" id="name" name="name" />
+                    <input className="border-2 px-1" type="text" id="name" name="name"
+                    placeholder="Name" />
                 </div>
 
                 <div className="flex flex-col gap">
-                    <label htmlFor="email">Email</label>
-                    <input className="border-2 px-1" type="email" id="email" name="email" />
+                    <label htmlFor="email">E-mail</label>
+                    <input className="border-2 px-1" type="email" id="email" name="email"
+                    placeholder="Email" />
                 </div>
 
+                
                 <div className="flex flex-col gap">
-                    <label htmlFor="username">UserName</label>
-                    <input className="border-2 px-1" type="text" id="username" name="username" />
+                    <label htmlFor="username">Username</label>
+                    <input className="border-2 px-1" type="text" id="username" name="username"
+                    placeholder="Username min 8 caracters"/>
                 </div>
 
                 <div className="flex flex-col gap">
                     <label htmlFor="password">Password</label>
-                    <input className="border-2 px-1" type="password" id="password" name="password" />
+                    <input className="border-2 px-1" type="password" id="password" name="password"
+                    placeholder="Password min 8 caracters" />
                 </div>
 
                 <div className="flex flex-col gap">
                     <label htmlFor="address">Address</label>
-                    <input className="border-2 px-1" type="text" id="address" name="address" />
+                    <input className="border-2 px-1" type="text" id="address" name="address"
+                    placeholder="Address" />
                 </div>
 
                 <div className="flex flex-col gap">
                     <label htmlFor="phone">Phone</label>
-                    <input className="border-2 px-1" type="text" id="phone" name="phone" />
+                    <input className="border-2 px-1" type="text" id="phone" name="phone"
+                    placeholder="Telephone number"/>
                 </div>
 
                 <div className="flex justify-between">
                     <button type="button" onClick={handleLoginClick} className="underline">
-                        Register
+                        Login
 
                     </button>
-                    <button type="submit" className=" underline cursor-pointer text-yellow-500 ">
-                        Login
+                    <button type="submit" className=" p-1 bg-black cursor-pointer text-yellow-500 ">
+                        Register
                     </button>
                 </div>
 
