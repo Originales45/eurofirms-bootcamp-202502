@@ -4,7 +4,7 @@ fetch('http://localhost:8080/products', {
         Authorization: 'susana20',
         'Content-Type': 'application/json'
     },
-    body: '{"name":"Cafetera Espresso profesional 3 Pistones profesional PKF33","image":"https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSsnZIxx8l5NuBfYMUh1CESe2fwiF6E4EGHfyvYRqhlpGQqbyFFekToQdFA-V8vxi6TFeMAEUGvsiXuJ_8V8Iai8tMPs0uEevSB5ha2Vcr84aa3eKr1aXDPpg","category": "coffee-machine","description":"Cafetera industria expreso 3 pistones 540 cafes", "price":"3434,08"}'
+    body: '{"name":"Rocket Boxer Timer Maquina De Espresso","image":"https://www.espressocoffeeshop.es/497902-large_default/rocket-boxer-timer-espresso-machine.jpg","category": "coffee-machine","description":"Máquina de espresso Rocket Boxer Timer, diseñada para entornos comerciales de alto volumen. Ofrece control preciso de la temperatura y la presión para espressos perfectos.", "price":"4560"}'
 })
     .catch(error => { throw Error('connection error') })
     .then(response => {

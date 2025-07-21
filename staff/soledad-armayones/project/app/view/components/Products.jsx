@@ -30,11 +30,11 @@ export const Products = () => {
     }, [category])
 
     return (
-        <div className="p-4 pb-32">
-            <h1 className="text-xl font-semibold mb-4 text-center capitalize">{category}</h1>
+        <div className="p-2 pb-2 font-serif ">
+            <h1 className="p-10 pb-0.5 text-3xl font-semibold mb-4  text-yellow-300 uppercase justify-self-center">{category}</h1>
 
-            <div className="grid grid-cols-3 gap-6">
-                {products.map(product => (
+            <div className="grid grid-cols-3 p-4 justify-around 3 text-around text-red[price]">
+                {products.map(product => ( 
                     <Product
                         key={product.id}
                         product={product}

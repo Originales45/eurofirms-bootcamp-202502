@@ -1,32 +1,31 @@
-import { User, Product } from '../data/index.js'
-import { validate, SystemError, NotFoundError, AuthorshipError } from 'com'
+import { data } from '../data'
+import { errors } from 'com'
 
-/**
- * Removes a post by id from database.
- * 
- * @param {string} userId The requester user Id.
- * @param {string} postId The post id to remove.
- */
-export const removeProduct = (userId, productId) => {
-    validate.id(userId)
-    validate.id(productId)
+const { SystemError } = errors
 
-    return User.findById(userId)
-        .catch(error => { throw new SystemError('mongo error') })
-        .then(user => {
-            if (!user) throw new NotFoundError('user not found')
+export const removeProduct = (product) => {
+    if (typeof productId !== 'string' || !productId.trim())
+        throw new SystemError('invalid product id')
 
-            return Product.findById(productId)
-                .catch(error => { throw new SystemError('mongo error') })
-                .then(post => {
-                    if (!post) throw new NotFoundError('product not found')
+    return fetch(import.meta.env.VITE_API_URL + '/products/' + productsId, {
+        method: 'DELETE',
+        headers: {
+            Authorization: 'Bearer ' + data.getToken()
+        }
+    })
+        .catch(error => { throw new SystemError('connection error') })
+        .then(response => {
+            const { status } = response
 
-                    // if (user.role !== 'administrator' && post.author.toString() !== userId) throw new AuthorshipError('user not author of post')
-                    //TODO version control rol administrador del producto para publicar el producto para vender.
+            if (status === 204) return
 
-                    return Product.deleteOne({ _id: productId })
-                        .catch(error => { throw new SystemError('mongo error') })
-                        .then(() => { })
+            return response.json()
+                .catch(() => { throw new SystemError('json error') })
+                .then(body => {
+                    const { error, message = 'Unknown error' } = body
+                    
+                    const constructor = errors[error] || SystemError
+                    throw new constructor(message)
                 })
         })
 }

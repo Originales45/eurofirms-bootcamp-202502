@@ -4,7 +4,7 @@ import { createProduct } from './createProduct.js'
 connect('mongodb://localhost:27017/test-shopapp')
     .then(() => {
         try {
-            return createProduct('6870ee42dc0b360bbfa81fc2', 'Vitrina neutra expositora 3 estantes', '68790df74b72a8912b996f10', 'food-exhibitor', 'Vitrina neutra expositora 3 estantes Expo Black-1 varias medidas con y sin luz VG', 350,52)
+            return createProduct('687942a29242542f08406565', 'Armario Refrigerado 600 Litros - Positivo Inox', 'https://es.fourniresto.com/167631-large_default/armario-refrigerado-600-litros-positivo-inox.jpg', 'refrigerator','Armario refrigerado positivo de 600 litros a frío estático de 0 a +8°C con acabado inox. Apertura de la puerta reversible' ,669.99)
                 .then(() => console.log('Product registered'))
         }
 

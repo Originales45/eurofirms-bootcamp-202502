@@ -1,5 +1,7 @@
 import { BottomNav } from './components/BottomNav'
 import { Routes, Route, useNavigate, Navigate } from 'react-router'
+import { AiOutlineWhatsApp, AiOutlineHome, AiOutlineMail } from 'react-icons/ai'
+import { IconContext } from "react-icons";
 
 export const Landing = () => {
     console.log('Landing -> render')
@@ -11,31 +13,29 @@ export const Landing = () => {
                 <img src="/logo.jpg" className="w-[50vw]" />
             </div>
 
-            <div className="flex flex-col items-center justify-center p-15 ">
+            <div className="w-full flex justify-center pt-1">
+    
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoPcto99u4VVGZ-ylrlgPU2w_FdAAHnaEz5g&s" className="w-[50vw]" /> 
+ 
+            </div> 
+                        
+            <div className="flex flex-col justify items-center "> 
 
-                <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQfkrwOuMZLKIqtWiTL02CwbWL6ldLRDL9dQ&s"
-                    alt="Cofee machine"
-                    className="w-[50vW] h-auto rounded shadow-md"
+                <div className="flex flex-col-revera text-center "/>
+                            
 
-                />
-
-                <div className="p-5 2xl">
-                    
-                    <p>"WhatsApp : +34 628 88 88 88" </p>
-
-                    <p>"Email: j.l.g.cafeteras@gmail.com"</p>
-
-                    <p>"Web : j.l.g.cafeteras.com"</p>
-                   
-
-                </div>
-
-                
+                        <AiOutlineWhatsApp size={26} /><>+34 658 88 88 88/</>
+                        <AiOutlineMail size={26} /><> j.l.g.cafeteras@gmail.com</>
+                        <AiOutlineHome size={26} /><> www.j.l.g.cafeteras.com</>
             </div>
 
             <BottomNav />
             
         </div>
-            )
+                
+
+                
+
+       
+    )                
 }

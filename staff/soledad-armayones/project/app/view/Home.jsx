@@ -3,7 +3,6 @@ import { BottomNav } from './components/BottomNav'
 import { logic } from '../logic'
 
 import { Product } from './components/Product'
-import { CreateProduct } from './components/CreateProduct'
 import { useContext } from '../context'
 
 export const Home = ({ onUserLoggedOut }) => {
@@ -76,5 +75,5 @@ export const Home = ({ onUserLoggedOut }) => {
         <BottomNav />
 
     </div>
-    
+
 }

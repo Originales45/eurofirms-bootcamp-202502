@@ -6,7 +6,7 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router'
 
 export const Login = ({ onRegisterClicked, onUserLoggedIn }) => {
     const { alert } = useContext()
-    
+        
     const handleRegisterClick = () => onRegisterClicked()
 
     const handleLoginSubmit = event => {
@@ -48,6 +48,7 @@ export const Login = ({ onRegisterClicked, onUserLoggedIn }) => {
             <div className="w-full flex justify-center pt-3 ">
                     <img src="/logo.jpg" className="w-[50vw]" />
                 </div>
+                
 
                 <form className="flex flex-col gap-4 p-3" onSubmit={handleLoginSubmit}>
                         <div className="flex flex-col gap">
@@ -68,15 +69,13 @@ export const Login = ({ onRegisterClicked, onUserLoggedIn }) => {
 
                         <div className="flex justify-between">
                             <button 
-                                type="button" onClick={handleRegisterClick} className="underline cursor-pointer"
+                                type="button" onClick={handleRegisterClick} className="underline text-yellow-300 font-semibold cursor-pointer"
                             >
                                 Register
                             </button>
-                            <button 
-                                type="submit" 
-                                className=" p-1 bg-black cursor-pointer text-yellow-500 "
-                            >                             
-                                Loging
+                            <button type="submit"
+                            className=" p-1 bg-black cursor-pointer text-yellow-500 semibold ">                    
+                            Login
                             </button>
                         </div>
                     </form>

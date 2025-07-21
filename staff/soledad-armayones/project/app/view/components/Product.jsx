@@ -28,9 +28,9 @@ export const Product = ({ product, onProductDeleted }) => {
     console.log('Product -> render')
 
     return <article>
-        <h1 className="font-arial text-xl w[20]">{product.author.username}</h1>
+        <h1 className="font-serif italic text-l underline font-bold ">{product.author.username}</h1>
 
-        <img src={product.image}  />
+        <img src={product.image}  />        
 
         <p>{product.name}</p>
 
@@ -38,9 +38,12 @@ export const Product = ({ product, onProductDeleted }) => {
         
         <p>{product.description}</p>
 
-        <p>{product.price}€</p>
+        <p>{product.price}€"</p> 
+            
 
-        <button className="bg-black text-yellow-300 px-2 mx-1 cursor-pointer" onClick={handleDeleteClick}>Borrar</button>
-
+        <button className="bg-black px-2 p-1 cursor-pointer " onClick={handleDeleteClick}>🗑️</button>
+        
     </article>
+
+                       
 }

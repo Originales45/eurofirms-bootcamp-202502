@@ -1,16 +1,21 @@
 import { useState } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router'
+import { BottomNav } from './view/components/BottomNav'
+
+import { Home } from './view/Home'
 import { Landing } from './view/Landing'
-import { Register } from './view/Register'
 import { Login } from './view/Login'
+import { Register } from './view/Register'
+import { Menu } from './view/Menu'
+import { WhatsApp } from './view/WhatsApp'
+
 import { Alert } from './view/components/Alert'
 import { Confirm } from './view/components/Confirm'
+import { Products } from './view/components/Products'
+import { CreateProduct} from './view/components/CreateProduct'
+
 import { Context } from './context'
 import { logic } from './logic'
-import { Menu } from './view/Menu'
-import { Products } from './view/components/Products'
-import { CreateProduct } from './view/components/CreateProduct'
-import { BottomNav } from './view/components/BottomNav'
 
 
 export const App = () => {
@@ -24,7 +29,9 @@ export const App = () => {
     const handleLoginClicked = () => navigate('/login')
     const handleUserRegistered = () => navigate('/login')
     const handleUserLoggedIn = () => navigate('/menu')
+    const handleWhatsAppClicked = () => navigate('/WhatsApp')
     const handleMenuClicked = () => navigate('/menu')
+    const handleWhatsAppAcces = () => navigate('/WhatsApp')
     const handleMenuLoggedIn = () => navigate('/menu')
 
     const handleAlertAccepted = () => setAlertMessage('')
@@ -93,10 +100,17 @@ export const App = () => {
                         />
                     } />
 
+                    
+                    <Route path="/WhatsApp" element={                        
+                        <WhatsApp
+                            onWhatsAppClicked={handleWhatsAppClicked}
+                            handleWhatsAppAcces={handleWhatsAppAcces}
+                        />
+                    } />
 
                     <Route path="/products/:category" element={<Products />} />
 
-                    <Route path="/create-clothe" element={
+                    <Route path="/create-product" element={
                         <CreateProduct
                             onProductCreated={() => navigate('/menu')}
                         />

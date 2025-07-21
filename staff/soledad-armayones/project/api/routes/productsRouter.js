@@ -38,16 +38,16 @@ productsRouter.get('/:category', (request, response, next) => {
     }
 })
 
-productsRouter.delete('/:postId', (request, response, next) => {
+productsRouter.delete('/:productId', (request, response, next) => {
     try {
         const authorization = request.headers.authorization
         const token = authorization.slice(7)
 
         const { sub: userId } = jwt.verify(token, JWT_SECRET)
 
-        const { postId } = request.params
+        const { productId } = request.params
 
-        logic.removeProduct(userId, postId)
+        logic.removeProduct(authorId, roductId)
             .then(() => response.status(204).send())
             .catch(error => next(error))
     } catch (error) {
