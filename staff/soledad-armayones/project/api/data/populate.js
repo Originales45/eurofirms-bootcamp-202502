@@ -16,16 +16,32 @@ connect('mongodb://localhost:27017/test-shopapp')
         // })
 
         const products = [
-            { 
+            {
                 name: "Frigorifico GN2/ 1, 200 x 134 x 81.5 cm, con cerradura, 1200L",
-                image : 'https://prod-metro-markets.imgix.net/item_image/2e08d0c4-d56c-4002-b353-79f350b6cdce?auto=format,compress&w=393&q=50&dpr=2&ar=1:1&fill-color=00FFFFFF',
-                category : "refrigerator",
-                description : "Frigorífico profesional acero inoxidable, refrigeración por aire 1200L",
-                price : 1571.79
+                image: 'https://prod-metro-markets.imgix.net/item_image/2e08d0c4-d56c-4002-b353-79f350b6cdce?auto=format,compress&w=393&q=50&dpr=2&ar=1:1&fill-color=00FFFFFF',
+                category: "refrigerator",
+                description: "Frigorífico profesional acero inoxidable, refrigeración por aire 1200L",
+                price: 1571.79
+            },
+            {
+                name: "Sayl Vitrina Caliente Standard Sahara",
+                image: 'https://hosteleria10.com/recursos/fotos/570x513/sayl-vitrina-para-tapas-standard-sahara-01.jpg',
+                category: "food-exhibitor",
+                description: "Sayl Vitrina Caliente Standard Sahara - Sin Iluminación - Ancho 84 cm Dimensiones 84 x 39, 5 x 24, 5 c",
+                price: 482.4
+
+            },
+            {
+                name: "SCafetera/ máquina de espresso - 2 grupos",
+                image: 'https://ggm.bynder.com/asset/36c4358f-befd-4a79-a0f3-53aa52aa25c1/JPG/STEMF2_masse-jpg_162319.jpg',
+                category: "cofee-machine",
+                description: "Sistema de infusión mecánico para una preinfusión uniforme y suave (La preinfusión, también conocida como preelaboración, es una pasada preliminar antes de extraer el polvo de espresso. El polvo en el portafiltro se humedece uniformemente sin presión para evitar canales de agua en el polvo seco durante la extracción.",
+                price: 1829
+
             },
         ]
 
-        return Products.insertMany(products)
+        return Product.insertMany(products)
 
     })
 

@@ -1,5 +1,5 @@
 import { User, Product } from '../data/index.js'
-import { validate, SystemError, } from 'com'
+import { validate, SystemError, NotFoundError } from 'com'
 
 export const getProducts = (category) => {
 
@@ -11,7 +11,7 @@ export const getProducts = (category) => {
 
     }
 
-    return Product.find(query).select('-__v').populate('author', 'username').lean()
+    return Product.find(query).select('-__v').lean()
         .catch(() => { throw new SystemError('mongo error') })
         .then(products => {
             products.forEach(product => {

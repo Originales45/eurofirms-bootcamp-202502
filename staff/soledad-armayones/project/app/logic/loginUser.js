@@ -15,7 +15,7 @@ export const loginUser = (username, password) => {
         .catch(error => { throw new SystemError('Connection error') })
         .then(response => {
             const { status } = response
-
+            
             if (status === 200)
                 return response.json()
                     .catch(error => { throw new SystemError('json error') })

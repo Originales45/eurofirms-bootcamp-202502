@@ -4,6 +4,8 @@ import { isUserLoggedIn } from './isUserLoggedIn'
 import { getUserUsername } from './getUserUsername'
 import { logoutUser } from './logoutUser'
 import { getProducts } from './getProducts'
+import { createProduct } from './createProduct'
+import { removeProduct } from './removeProduct'
 
 export const logic = {
     registerUser,
@@ -11,5 +13,7 @@ export const logic = {
     isUserLoggedIn,
     getUserUsername,
     logoutUser,
-    getProducts
+    getProducts,
+    createProduct,
+    removeProduct
 }

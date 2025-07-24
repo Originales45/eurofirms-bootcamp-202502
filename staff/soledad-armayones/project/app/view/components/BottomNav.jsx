@@ -1,7 +1,7 @@
 import { AiOutlineUser, AiOutlineSearch, AiOutlineHome, AiOutlineWhatsApp } from 'react-icons/ai'
 import { useNavigate } from 'react-router'
-import { logic } from '../../logic'
-import { IconContext } from "react-icons";
+
+
 
 
 export function BottomNav() {

@@ -12,7 +12,7 @@ export const createProduct = (userId, name, image, category, description, price)
     validate.description(description)
     validate.price(price)
 
-    return User.findById (userId)
+    return User.findById(userId)
         .catch(error => {
             throw new
                 SystemError(error.message)

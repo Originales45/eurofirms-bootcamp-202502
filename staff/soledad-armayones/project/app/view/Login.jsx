@@ -6,6 +6,7 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router'
 
 export const Login = ({ onRegisterClicked, onUserLoggedIn }) => {
     const { alert } = useContext()
+    const navigate = useNavigate()
         
     const handleRegisterClick = () => onRegisterClicked()
 

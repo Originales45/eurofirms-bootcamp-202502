@@ -12,7 +12,7 @@ import { WhatsApp } from './view/WhatsApp'
 import { Alert } from './view/components/Alert'
 import { Confirm } from './view/components/Confirm'
 import { Products } from './view/components/Products'
-import { CreateProduct} from './view/components/CreateProduct'
+import { CreateProduct } from './view/components/CreateProduct'
 
 import { Context } from './context'
 import { logic } from './logic'
@@ -100,8 +100,8 @@ export const App = () => {
                         />
                     } />
 
-                    
-                    <Route path="/WhatsApp" element={                        
+
+                    <Route path="/WhatsApp" element={
                         <WhatsApp
                             onWhatsAppClicked={handleWhatsAppClicked}
                             handleWhatsAppAcces={handleWhatsAppAcces}

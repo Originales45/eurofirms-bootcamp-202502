@@ -1,31 +1,24 @@
-import { data } from '../data'
-import { errors } from 'com'
+import { User, Product } from '../data/index.js'
+import { validate, SystemError, NotFoundError, AuthorizationError} from 'com'
 
-const { SystemError } = errors
 
-export const removeProduct = (product) => {
-    if (typeof productId !== 'string' || !productId.trim())
-        throw new SystemError('invalid product id')
+export const removeProduct = (userId, productId) => {
+    validate.productid(productId)
 
-    return fetch(import.meta.env.VITE_API_URL + '/products/' + productsId, {
-        method: 'DELETE',
-        headers: {
-            Authorization: 'Bearer ' + data.getToken()
-        }
-    })
-        .catch(error => { throw new SystemError('connection error') })
-        .then(response => {
-            const { status } = response
+    return User.findById(userId)
+        .catch(error => { throw new SystemError('mongo error') })
+        .then(user => {
+            if (!user) throw new NotFoundError('user not found')
 
-            if (status === 204) return
+            return Product.findById(productId)
+                .catch(error => { throw new SystemError('mongo error') })
+                .then(product => {
+                    if (!product) throw new NotFoundError('product not found')
 
-            return response.json()
-                .catch(() => { throw new SystemError('json error') })
-                .then(body => {
-                    const { error, message = 'Unknown error' } = body
-                    
-                    const constructor = errors[error] || SystemError
-                    throw new constructor(message)
+                    return Product.deleteOne({ _id: productId })
+                        .catch(error => { throw new SystemError('mongo error') })
+                        .then(() => { })
+    
                 })
         })
 }

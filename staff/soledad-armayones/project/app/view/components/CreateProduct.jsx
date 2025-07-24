@@ -1,31 +1,32 @@
 import { logic } from '../../logic'
+import { useNavigate } from 'react-router'
+import { useContext } from '../../context'
 
-import { Context, useContext } from '../../context'
-import { BottomNav } from './BottomNav'
+export const CreateProduct = ({ onProductCreated }) => {
 
+    const navigate = useNavigate()
 
-export const CreateProduct = ({ onCancelClicked, onProductcreated }) => {
+    const { alert } = useContext()
 
-    const {alert} = useContext
-
-    const handleCancelClick = () => onCancelClicked()
+    const handleCancelClick = () =>  navigate('/menu')
 
     const handleCreateProductSubmit = event => {
         event.preventDefault()
-        
+
         const form = event.target
 
+        const name = form.name.value
+        const image = form.image.value
         const category = form.category.value
         const description = form.description.value
-        const price = form.price.value
-        
+        const price = Number(form.price.value)
+
         try {
-            logic.createProduct(name, image, category, description, price )
+            logic.createProduct(name, image, category, description, price)
                 .then(() => {
                     form.reset()
 
-
-                    onProductcreated()
+                    onProductCreated()
                 })
                 .catch(error => {
                     console.error(error)
@@ -45,18 +46,24 @@ export const CreateProduct = ({ onCancelClicked, onProductcreated }) => {
         <h1 className="text-xl">Crear Producto</h1>
 
         <form className="font-serif text-xl mt-2 flex flex-col gap-4" onSubmit={handleCreateProductSubmit}>
-            <div className="flex flex-col gap-1 font-serif text-yellow-300">
-                <label htmlFor="category">Categoría</label>
-                <select name="category" id="category"  className="font-serif px-12 py-2">
-                    <option value="coffee-macine">Coffee-Machine</option>
-                    <option calue="refrigerator">Refrigerator</option>
+            <div className="flex flex-col gap-1">
+                <label htmlFor="name">Name</label>
+                <input className="border-2 px-1" type="text" id="name" name="name" placeholder="the product text" />
+            </div>
+
+            <div className="flex flex-col gap-1">
+                <label htmlFor="image">Image</label>
+                <input className="border border-black px-12 py-12 rounded" type="text" id="image" name="image" placeholder="URL de la imagen" />
+            </div>
+
+
+            <div className="font-serif text-xl mt-2 flex flex-col ">
+                <label htmlFor="category">Category</label>
+                <select name="category" id="category" className="font-serif px-12 py-2">
+                    <option value="coffee-machine">Coffee-Machine</option>
+                    <option value="refrigerator">Refrigerator</option>
                     <option value="food-exhibitor">Food-exhibitor</option>
                 </select>
-            </div>
-            
-            <div className="flex flex-col gap-1">
-                <label htmlFor="name">Nombre Producto</label>
-                <input className="border-2 px-1" type="text" id="text" name="text" placeholder="the product text" />
             </div>
 
             <div className="flex flex-col gap-1">
@@ -64,9 +71,15 @@ export const CreateProduct = ({ onCancelClicked, onProductcreated }) => {
                 <textarea className="border border-black px-12 py-2 rounded" id="description" name="description" placeholder="Descripción detallada"></textarea>
             </div>
 
+            <div className="flex flex-col gap-1">
+                <label htmlFor="Price">Price</label>
+                <input className="border border-black px-12 py-12 rounded" type="number" id="price" name="price" placeholder="Price of Product" />
+            </div>
+
+
 
             <div className="flex justify-between">
-                <a className="underline" href="#" onClick={handleCancelClick}>Cancel</a>
+                <a className="underline text-yellow-300" href="#" onClick={handleCancelClick}>Cancel</a>
 
                 <button className="bg-black text-yellow-300 px-2" type="submit">Create</button>
             </div>

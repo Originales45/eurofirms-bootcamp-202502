@@ -91,12 +91,13 @@ const product = new Schema({
         required: true
     },
 
-    price: {
+    productid: {
 
-        type: Number,
+        type: String,
         required: true,
 
     }
+
 
 })
 

@@ -1,29 +1,29 @@
 # Web page sales machinery of hosteleria
 
-## This web page sales second hand machinery of hosterleria. 
+## This web page sales second hand machinery of hosterleria. 0.1
 
 Loremm ..  All second machinery that needs for your business .
 Refigeratos. Dishwasher. Eshibitors. Coffe grinders.
 Whith 1 year warranty and local repair service.
 
-![cofee maquinery](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3gwODcyeWgycnI3cXl1Z3g4ZHhvOGUwenB4d3IweWVqeXhsNnc1aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oFyDpRagf96Uz9rzO/giphy.gif)
+![coffee maquinery](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3gwODcyeWgycnI3cXl1Z3g4ZHhvOGUwenB4d3IweWVqeXhsNnc1aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oFyDpRagf96Uz9rzO/giphy.gif)
 
 ## Funcional
 
 ### Use Cases
 
 Cient (User)
-- Search Machinery
-- Buy Machinery
-- Report fault warranty
-- Make product consultations
-- chat with cosmtuer
-- Pay the order
-- Shipping form
+- Search Machinery (v0.1)
+- Buy Machinery (v0.1)
+- Report fault warranty (v0.1)
+- Make product consultations (v0.1)
+- chat with cosmtuer (v0.1)
+- Pay the order  (v0.1)
+- Shipping form (v0.1)
 - Register User
 - Share product
-- Report costumer
-- Block costumer
+- Report costumer (v0.1) 
+- Block costumer (v0.1)
 - Request monitoring (v1.0)
 
 Admin (User) [v0.1]
@@ -60,13 +60,14 @@ Api
 
 Web Page
 |- Logo
-|- Image coffe machine 
+|- Register Product: Image, name, escription, category, price
 |- Register User
-|- Search
+|- Search (v0.1)
 |- Home
-|- Descriptions products
-|- Buy machinary
-|- Chat & Repair Contatc
+|- WhatsApp QR contact
+|- Descriptions products (category: coffe-machine, refrigerator, food-exhibitor)
+|- Buy machinary (v0.1)
+|- Chat & Repair Contatc (v0.1)
 
 ...
 ```
@@ -81,11 +82,12 @@ User
 
 Product
 - id (UUID)
+- category (string, required, enum: coffee-machine | refrigerator | food-exhibitors)
 - name (string, required)
 - image (image, required)
 - description  (string, required)
 - price (number, required)
-- category (string, required, enum: coffee-machine | refrigerator | food-exhibitors)
+
 
 
 
@@ -94,17 +96,18 @@ Order (v0.1)
 - name (string, required)
 - email (string, required)
 - adress1 (string, required)
-- adress2 (string, required)
+- adress2 (string, required) (v0.1)
 - phone (numbers, required)
-- province (string, required)
-- city (string, required)
-- country (string, required)
-- zipCode (string, required)
-- date (date, required)
-- payment (string, required)
+- province (string, required) (v0.1)
+- city (string, required) (v0.1)
+- country (string, required) (v0.1)
+- zipCode (string, required) (v0.1)
+- date (date, required) (v0.1)
+- payment (string, required) (v0.1)
 
 ### Tecnologies
 - React
+- React.icons
 - Express
 - Mongo
 - Node

@@ -51,13 +51,14 @@ export const Home = ({ onUserLoggedOut }) => {
         </div>
 
         <div className="mt-2 ">
-            <h1 className="text-xl">j.l.g.cafeteras.com px-4{username}!</h1>
+            <h1 className="text-xl">Wellcome {username}!</h1>
 
-            <button
+
+            {data.getToken() && <button
                 className="bg-yellow-300 text-black px-2 mx-1"
                 type="button"
                 onClick={handleCreateProductClick}
-            >+</button>
+            >+</button>}
 
             <button
                 className="bg-yellow-300 text-black px-2 mx-1"

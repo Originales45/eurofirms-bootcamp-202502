@@ -89,9 +89,7 @@ export const Register = ({ onLoginClicked, onUserRegistered }) => {
 
                 <div className="flex justify-between">
                     <button 
-                        type="button" onClick=
-                        {handleLoginClick} 
-                        className="underline text-yellow-300
+                        type="button" onClick={handleLoginClick} className="underline text-yellow-300
                      font-semibold">
                         Login
 

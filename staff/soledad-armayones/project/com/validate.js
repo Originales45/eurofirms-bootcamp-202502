@@ -46,6 +46,11 @@ export const validate = {
         if (id.length !== 24) throw new ValidationError('invalid id length')
     },
 
+    productid(productid) {
+        if (typeof productid !== 'string') throw new ValidationError('invalid productid type')
+        if (productid.length !== 24) throw new ValidationError('invalid productid length')
+    },
+
     image(image) {
         if (typeof image !== 'string') throw new ValidationError('invalid image type')
     },
@@ -62,6 +67,7 @@ export const validate = {
         // if (category !== 'coffee-machine' || category !== 'refrigerator' || category !== 'food-exhibitor') throw new ValidationError('invalid category')
         if (!categories.includes(category)) throw new ValidationError('invalid category')
     },
+
     price(price) {
         if (typeof price !== 'number') throw new ValidationError('invalid price type')
     },
