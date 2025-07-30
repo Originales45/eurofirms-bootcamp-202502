@@ -25,28 +25,28 @@ export const Products = () => {
         }
     }
 
-            useEffect(() => {
-                loadProducts()
-            }, [category])
+    useEffect(() => {
+        loadProducts()
+    }, [category])
 
-            return (
-                <div className="p-2 pb-2 font-serif ">
-                    <h1 className="p-10 pb-0.5 text-3xl font-semibold mb-4  text-yellow-300 uppercase justify-self-center">{category}</h1>
+    return (
+        <div className="p-2 pb-2 font-serif ">
+            <h1 className="p-10 pb-0.5 text-3xl font-semibold mb-4  text-yellow-300 uppercase justify-self-center">{category}</h1>
 
-                    <div className="grid grid-cols-3 p-4 justify-around">
-                        {products.map(product => (
-                            <Product
-                                key={product.id}
-                                product={product}
-                                onProductDeleted={loadProducts}
+            <div className="grid grid-cols-3 p-4 justify-around">
+                {products.map(product => (
+                    <Product
+                        key={product.id}
+                        product={product}
+                        onProductDeleted={loadProducts}
 
-                            />
-                        ))}
+                    />
+                ))}
 
 
-                    </div>
-                    <BottomNav />
-                </div>
+            </div>
+            <BottomNav />
+        </div>
 
-            )
-        }
+    )
+}

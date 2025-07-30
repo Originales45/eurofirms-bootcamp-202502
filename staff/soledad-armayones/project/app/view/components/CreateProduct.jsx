@@ -1,6 +1,5 @@
 import { logic } from '../../logic'
-import { useNavigate } from 'react-router'
-import { useContext } from '../../context'
+import { validate, SystemError, errors } from 'com'
 
 export const CreateProduct = ({ onProductCreated }) => {
 
@@ -8,7 +7,7 @@ export const CreateProduct = ({ onProductCreated }) => {
 
     const { alert } = useContext()
 
-    const handleCancelClick = () =>  navigate('/menu')
+    const handleCancelClick = () => navigate('/menu')
 
     const handleCreateProductSubmit = event => {
         event.preventDefault()

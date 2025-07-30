@@ -13,7 +13,6 @@ import { Alert } from './view/components/Alert'
 import { Confirm } from './view/components/Confirm'
 import { Products } from './view/components/Products'
 import { CreateProduct } from './view/components/CreateProduct'
-
 import { Context } from './context'
 import { logic } from './logic'
 

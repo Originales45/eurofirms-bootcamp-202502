@@ -1,9 +1,9 @@
 import { User, Product } from '../data/index.js'
-import { validate, SystemError, NotFoundError, AuthorizationError} from 'com'
+import { validate, SystemError, NotFoundError, AuthorizationError } from 'com'
 
 
 export const removeProduct = (userId, productId) => {
-    validate.productid(productId)
+    validate.id(productId)
 
     return User.findById(userId)
         .catch(error => { throw new SystemError('mongo error') })
@@ -18,7 +18,7 @@ export const removeProduct = (userId, productId) => {
                     return Product.deleteOne({ _id: productId })
                         .catch(error => { throw new SystemError('mongo error') })
                         .then(() => { })
-    
+
                 })
         })
 }

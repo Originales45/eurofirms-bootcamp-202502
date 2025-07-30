@@ -1,5 +1,4 @@
 import { BottomNav } from './components/BottomNav'
-import { Routes, Route, useNavigate, Navigate } from 'react-router'
 import { AiOutlineWhatsApp, AiOutlineHome, AiOutlineMail } from 'react-icons/ai'
 import { IconContext } from "react-icons";
 

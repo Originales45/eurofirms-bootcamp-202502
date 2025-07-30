@@ -1,19 +1,20 @@
-import { registerUser } from './registerUser'
-import { loginUser } from './loginUser'
-import { isUserLoggedIn } from './isUserLoggedIn'
-import { getUserUsername } from './getUserUsername'
-import { logoutUser } from './logoutUser'
-import { getProducts } from './getProducts'
-import { createProduct } from './createProduct'
-import { removeProduct } from './removeProduct'
+import { registerUser } from './registerUser.js'
+import { loginUser } from './loginUser.js'
+import { getUserUsername } from './getUserUsername.js'
+import { isUserLoggedIn } from './isUserLoggedIn.js'
+
+import { createProduct } from './createProduct.js'
+import { getProducts } from './getProducts.js'
+import { removeProduct } from './removeProduct.js'
+
 
 export const logic = {
     registerUser,
     loginUser,
-    isUserLoggedIn,
     getUserUsername,
-    logoutUser,
-    getProducts,
+    isUserLoggedIn,
+
     createProduct,
+    getProducts,
     removeProduct
 }

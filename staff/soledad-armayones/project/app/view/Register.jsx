@@ -4,7 +4,7 @@ import { BottomNav } from './components/BottomNav'
 
 export const Register = ({ onLoginClicked, onUserRegistered }) => {
     const { alert } = useContext()
-    
+        
     const handleLoginClick = () => onLoginClicked()
 
     const handleRegisterSubmit = event => {

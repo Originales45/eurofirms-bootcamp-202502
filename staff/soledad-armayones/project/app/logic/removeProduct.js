@@ -1,10 +1,11 @@
 import { data } from '../data'
 import { errors } from 'com'
 
-export const removeProduct = (productId) => {
-        validate.id(productId)
-
-    return fetch(import.meta.env.VITE_API_URL + '/products/' + id, {
+export const removeProduct = productId => {
+    if (typeof productId !== 'string' || !productId.trim())
+        throw new SystemError('invalid productId')
+    
+    return fetch(import.meta.env.VITE_API_URL + '/products/' + productId, {
         method: 'DELETE',
         headers: {
             Authorization: 'Bearer ' + data.getToken()

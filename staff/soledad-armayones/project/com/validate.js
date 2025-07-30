@@ -46,17 +46,14 @@ export const validate = {
         if (id.length !== 24) throw new ValidationError('invalid id length')
     },
 
-    productid(productid) {
-        if (typeof productid !== 'string') throw new ValidationError('invalid productid type')
-        if (productid.length !== 24) throw new ValidationError('invalid productid length')
-    },
-
     image(image) {
         if (typeof image !== 'string') throw new ValidationError('invalid image type')
     },
 
     description(description) {
-        if (typeof description !== 'string') throw new ValidationError('invalid description type')
+        if (typeof description !== 'string') throw new ValidationError('invalid     description type')
+        if (description.length < 1) throw new ValidationError('invalid description min length')
+        if (description.length > 250) throw new ValidationError('invalid description max length')
     },
 
 

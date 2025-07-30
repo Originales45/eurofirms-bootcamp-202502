@@ -44,6 +44,6 @@ export const Product = ({ product, onProductDeleted }) => {
         <button className="bg-black px-2 p-1 cursor-pointer " onClick={handleDeleteClick}>🗑️</button>
 
     </article>
-    
+
 
 }
