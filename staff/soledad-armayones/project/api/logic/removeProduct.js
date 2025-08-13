@@ -2,10 +2,11 @@ import { User, Product } from '../data/index.js'
 import { validate, SystemError, NotFoundError, AuthorizationError } from 'com'
 
 
-export const removeProduct = (userId, productId) => {
+export const removeProduct = (username, productId) => {
     validate.id(productId)
+    validate.username(username)
 
-    return User.findById(userId)
+    return User.findById(username)
         .catch(error => { throw new SystemError('mongo error') })
         .then(user => {
             if (!user) throw new NotFoundError('user not found')

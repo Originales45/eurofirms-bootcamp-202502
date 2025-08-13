@@ -21,7 +21,7 @@ export function BottomNav() {
                 <AiOutlineUser size={24} />
             </button>
 
-
+            
             <button onClick={() => navigate('/')}>
                 <AiOutlineHome size={24} />
             </button>
@@ -36,7 +36,7 @@ export function BottomNav() {
 
             <button onClick={() => navigate('/WhatsApp')}>
                 <AiOutlineWhatsApp size={24} />
-            </button>
+            </button>        
 
         </nav>
     )

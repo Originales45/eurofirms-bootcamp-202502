@@ -10,7 +10,7 @@ export const Product = ({ product, onProductDeleted }) => {
             .then(result => {
                 if (result)
                     try {
-                        logic.removeProduct(product.id)
+                        logic.removeProduct(productId)
                             .then(() => onProductDeleted())
                             .catch(error => {
                                 console.error(error)
